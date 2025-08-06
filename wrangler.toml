@@ -1,0 +1,14 @@
+name = "nolebase-template"
+compatibility_date = "2024-01-01"
+
+[env.production]
+routes = [
+  { pattern = "yourdomain.com/*", zone_name = "yourdomain.com" }
+]
+
+[[env.production.rules]]
+action = "rewrite"
+expression = "http.request.uri.path matches \"^/assets/.*\""
+[env.production.rules.action_parameters]
+uri = { path = { value = "/assets${http.request.uri.path}" } }
+headers = { "Cache-Control" = "public, max-age=31536000, immutable" }
