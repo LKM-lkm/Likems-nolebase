@@ -158,8 +158,7 @@ export default defineConfig({
           tex: {
             inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
             displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
-            processEscapes: true,
-            processEnvironments: true
+            processEscapes: true
           },
           output: {
             font: 'mathjax-termes'
@@ -168,7 +167,12 @@ export default defineConfig({
             displayAlign: 'center'
           },
           startup: {
-            typeset: false
+            ready: () => {
+              MathJax.startup.defaultReady();
+              MathJax.startup.document.state(0);
+              MathJax.texReset();
+              MathJax.typesetPromise();
+            }
           }
         };
       `
@@ -178,14 +182,16 @@ export default defineConfig({
       src: 'https://fastly.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js',
       async: 'true'
     }],
-    // MathJax 初始化
+    // MathJax 重新渲染
     ['script', {
       innerHTML: `
-        document.addEventListener('DOMContentLoaded', function() {
-          if (window.MathJax && MathJax.typesetPromise) {
-            MathJax.typesetPromise();
-          }
-        });
+        if (typeof window !== 'undefined') {
+          window.addEventListener('load', () => {
+            if (window.MathJax) {
+              MathJax.typesetPromise().catch(err => console.log(err));
+            }
+          });
+        }
       `
     }],
 
