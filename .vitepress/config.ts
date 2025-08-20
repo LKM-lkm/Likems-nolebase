@@ -148,7 +148,40 @@ export default defineConfig({
       name: 'msapplication-TileColor',
       content: '#603cba',
     }],
-
+    // TeX Gyre Termes 字体
+    ['link', { 
+      rel: 'stylesheet', 
+      href: '/fonts/tex-gyre-termes.css' 
+    }],
+    // MathJax 全局配置
+    ['script', {
+      innerHTML: `
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
+            displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
+            processEscapes: true
+          },
+          chtml: {
+            font: 'TeX Gyre Termes, serif',
+            adaptiveCSS: true,
+            matchFontHeight: false
+          },
+          svg: {
+            font: 'TeX Gyre Termes, serif'
+          },
+          startup: {
+            ready() {
+              MathJax.startup.defaultReady();
+              const chtml = MathJax.startup.outputJax;
+              if (chtml) {
+                chtml.font.family = 'TeX Gyre Termes, serif';
+              }
+            }
+          }
+        };
+      `
+    }],
     // Proxying Plausible through Netlify | Plausible docs
     // https://plausible.io/docs/proxy/guides/netlify
     ['script', { 'defer': 'true', 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
@@ -250,11 +283,7 @@ export default defineConfig({
     math: true,
     config: (md) => {
       md.use(MarkdownItFootnote)
-      md.use(MarkdownItMathjax3, {
-        output: {
-          font: 'mathjax-termes'
-        }
-      })
+      md.use(MarkdownItMathjax3)
       md.use(BiDirectionalLinks({
         dir: process.cwd(),
       }))
