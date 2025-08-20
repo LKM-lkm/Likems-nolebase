@@ -149,10 +149,13 @@ export default defineConfig({
       content: '#603cba',
     }],
 
-    // MathJax v4 配置
+    // MathJax v4 配置 - 强制CHTML输出
     ['script', {
       innerHTML: `
         window.MathJax = {
+          loader: {
+            load: ['input/tex', 'output/chtml']
+          },
           output: {
             font: 'mathjax-termes'
           },
@@ -276,7 +279,7 @@ export default defineConfig({
       light: 'github-light',
       dark: 'one-dark-pro',
     },
-    math: true,
+    // math: true, // 禁用VitePress内置数学支持
     config: (md: any) => {
       md.use(MarkdownItFootnote)
       // md.use(MarkdownItMathjax3) - 移除以使用原生MathJax配置
