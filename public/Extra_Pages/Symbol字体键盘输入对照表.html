@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Symbol字体键盘输入对照表</title>
     <style>
+        @font-face {
+            font-family: 'Symbol';
+            src: url('../Symbol-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -33,7 +40,7 @@
             text-align: center;
             color: #1a1a1a;
             font-size: 2.5rem;
-            font-weight: 300;
+            font-weight: bold;
             margin-bottom: 40px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
@@ -104,7 +111,7 @@
         }
         
         .symbol-display {
-            font-family: Symbol, serif;
+            font-family: 'Symbol', serif;
             font-size: 2.5rem;
             color: #1a1a1a;
             margin-bottom: 15px;
