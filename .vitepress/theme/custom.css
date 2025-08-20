@@ -39,11 +39,4 @@ img {
   content-visibility: auto;
 }
 
-/* MathJax 使用 TeX Gyre Termes 字体 */
-.MathJax {
-  font-family: 'TeXGyreTermes', 'Times New Roman', serif !important;
-}
 
-mjx-container {
-  font-family: 'TeXGyreTermes', 'Times New Roman', serif !important;
-}
