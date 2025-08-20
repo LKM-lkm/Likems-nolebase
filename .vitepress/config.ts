@@ -150,16 +150,7 @@ export default defineConfig({
       content: '#603cba',
     }],
 
-    // TeX Gyre Termes字体
-    ['link', {
-      rel: 'preload',
-      href: 'https://fonts.googleapis.com/css2?family=TeX+Gyre+Termes:ital,wght@0,400;0,700;1,400;1,700&display=swap',
-      as: 'style'
-    }],
-    ['link', {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=TeX+Gyre+Termes:ital,wght@0,400;0,700;1,400;1,700&display=swap'
-    }],
+
     // KaTeX CSS
     ['link', {
       rel: 'stylesheet',
