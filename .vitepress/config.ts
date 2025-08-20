@@ -1,7 +1,7 @@
 import process from 'node:process'
 import { defineConfig } from 'vitepress'
 import MarkdownItFootnote from 'markdown-it-footnote'
-import MarkdownItKatex from 'markdown-it-katex'
+
 
 
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
@@ -151,10 +151,39 @@ export default defineConfig({
     }],
 
 
-    // KaTeX CSS
-    ['link', {
-      rel: 'stylesheet',
-      href: 'https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css'
+    // MathJax v4 配置
+    ['script', {
+      innerHTML: `
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
+            displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
+            processEscapes: true,
+            processEnvironments: true
+          },
+          chtml: {
+            displayAlign: 'center',
+            fontURL: 'https://cdn.jsdelivr.net/npm/mathjax@4/es5/output/chtml/fonts/woff-v2'
+          },
+          startup: {
+            ready: () => {
+              MathJax.startup.defaultReady();
+              const style = document.createElement('style');
+              style.innerHTML = \`
+                mjx-container[jax="CHTML"] {
+                  font-family: 'TeX Gyre Termes', 'Times New Roman', serif !important;
+                }
+              \`;
+              document.head.appendChild(style);
+            }
+          }
+        };
+      `
+    }],
+    // MathJax v4 CHTML
+    ['script', {
+      src: 'https://cdn.jsdelivr.net/npm/mathjax@4/es5/tex-chtml.js',
+      async: 'true'
     }],
 
 
@@ -259,7 +288,7 @@ export default defineConfig({
     math: false,
     config: (md: any) => {
       md.use(MarkdownItFootnote)
-      md.use(MarkdownItKatex)
+
 
       md.use(BiDirectionalLinks({
         dir: process.cwd(),
