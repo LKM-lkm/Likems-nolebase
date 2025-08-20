@@ -154,45 +154,24 @@ export default defineConfig({
     // MathJax v4 配置
     ['script', {
       innerHTML: `
-        window.MathJax = {
+        MathJax = {
           tex: {
             inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-            displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
-            processEscapes: true
+            displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
           },
           output: {
             font: 'mathjax-termes'
           },
           chtml: {
             displayAlign: 'center'
-          },
-          startup: {
-            ready: () => {
-              MathJax.startup.defaultReady();
-              MathJax.startup.document.state(0);
-              MathJax.texReset();
-              MathJax.typesetPromise();
-            }
           }
         };
       `
     }],
     // MathJax v4 CHTML
     ['script', {
-      src: 'https://fastly.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js',
-      async: 'true'
-    }],
-    // MathJax 重新渲染
-    ['script', {
-      innerHTML: `
-        if (typeof window !== 'undefined') {
-          window.addEventListener('load', () => {
-            if (window.MathJax) {
-              MathJax.typesetPromise().catch(err => console.log(err));
-            }
-          });
-        }
-      `
+      src: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
+      defer: 'true'
     }],
 
 
