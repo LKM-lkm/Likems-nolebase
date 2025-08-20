@@ -191,6 +191,7 @@ function sidebarSort(sidebar: ArticleTree[], folderTop: boolean = true) {
  * @returns 是否是别名
  */
 function isTagAliasOfTag(srcTag: string, targetTag: string) {
+  if (!srcTag || !targetTag) return false
   return srcTag === targetTag || srcTag.toUpperCase() === targetTag.toUpperCase()
 }
 
@@ -303,10 +304,12 @@ async function processDocs(docs: string[], docsMetadata: DocsMetadata) {
     const parsedPageContent = matter(content)
 
     if (Array.isArray(parsedPageContent.data.tags)) {
+      const validTags = parsedPageContent.data.tags.filter(tag => tag !== null && tag !== undefined && tag !== '')
       if (parsedPageContent.data.tags.includes(null))
         console.error('null tag found in', docPath)
 
-      tagsToBeProcessed.push({ doc: docPath, tags: parsedPageContent.data.tags })
+      if (validTags.length > 0)
+        tagsToBeProcessed.push({ doc: docPath, tags: validTags })
     }
 
     const hash = createHash('sha256')
