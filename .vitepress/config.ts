@@ -159,6 +159,9 @@ export default defineConfig({
           },
           chtml: {
             displayAlign: 'center'
+          },
+          output: {
+            font: 'mathjax-termes'
           }
         };
       `
@@ -166,11 +169,11 @@ export default defineConfig({
     // MathJax v4 CHTML 组件
     ['script', {
       src: 'https://fastly.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js',
-      async: true
+      async: 'true'
     }],
     // Proxying Plausible through Netlify | Plausible docs
     // https://plausible.io/docs/proxy/guides/netlify
-    ['script', { 'defer': true, 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
+    ['script', { 'defer': 'true', 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
   ],
   themeConfig: {
     outline: { label: '页面大纲', level: 'deep' },
@@ -270,6 +273,10 @@ export default defineConfig({
     config: (md: any) => {
       md.use(MarkdownItFootnote)
       md.use(MarkdownItMathjax3, {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
         output: 'chtml'
       })
       md.use(BiDirectionalLinks({
