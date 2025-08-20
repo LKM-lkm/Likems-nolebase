@@ -149,36 +149,23 @@ export default defineConfig({
       content: '#603cba',
     }],
 
-    // MathJax v4 配置 - 强制CHTML输出
+    // MathJax v4 配置
     ['script', {
       innerHTML: `
         window.MathJax = {
-          loader: {
-            load: ['input/tex', 'output/chtml']
-          },
-          output: {
-            font: 'mathjax-termes'
-          },
-          chtml: {
-            displayAlign: 'center'
-          },
           tex: {
             inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
             displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
           },
-          startup: {
-            pageReady() {
-              return MathJax.startup.document.outputJax.font
-                .loadDynamicFiles()
-                .then(() => MathJax.startup.defaultPageReady());
-            }
+          chtml: {
+            displayAlign: 'center'
           }
         };
       `
     }],
-    // MathJax v4 startup.js
+    // MathJax v4 CHTML 组件
     ['script', {
-      src: 'https://fastly.jsdelivr.net/npm/mathjax@4.0.0/startup.js',
+      src: 'https://fastly.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js',
       async: true
     }],
     // Proxying Plausible through Netlify | Plausible docs
