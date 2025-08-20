@@ -31,7 +31,7 @@ export default defineConfig({
         output: {
 
           assetFileNames: (assetInfo) => {
-            const info = assetInfo.name.split('.')
+            const info = assetInfo.name?.split('.') || []
             const ext = info[info.length - 1]
             if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
               return `assets/images/[name]-[hash][extname]`
@@ -183,7 +183,7 @@ export default defineConfig({
     }],
     // Proxying Plausible through Netlify | Plausible docs
     // https://plausible.io/docs/proxy/guides/netlify
-    ['script', { 'defer': 'true', 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
+    ['script', { 'defer': true, 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
   ],
   themeConfig: {
     outline: { label: '页面大纲', level: 'deep' },
@@ -280,9 +280,11 @@ export default defineConfig({
       dark: 'one-dark-pro',
     },
     math: true,
-    config: (md) => {
+    config: (md: any) => {
       md.use(MarkdownItFootnote)
-      md.use(MarkdownItMathjax3)
+      md.use(MarkdownItMathjax3, {
+        output: 'chtml'
+      })
       md.use(BiDirectionalLinks({
         dir: process.cwd(),
       }))
