@@ -42,7 +42,6 @@ import HomePage from './components/HomePage.vue'
 import Share from './components/Share.vue'
 import TocList from './components/TocList.vue'
 import NavExtra from './components/NavExtra.vue'
-import ArtalkComment from './components/ArtalkComment.vue'
 
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 import '@nolebase/vitepress-plugin-highlight-targeted-heading/client/style.css'
@@ -95,7 +94,6 @@ const ExtendedTheme: Theme = {
     app.component('AppContainer', AppContainer)
     app.component('NolebaseUnlazyImg', NolebaseUnlazyImg)
     app.component('NavExtra', NavExtra)
-    app.component('ArtalkComment', ArtalkComment)
 
     app.provide(NolebaseEnhancedReadabilitiesInjectionKey, {
       layoutSwitch: {
@@ -157,13 +155,15 @@ const ExtendedTheme: Theme = {
     
     // Obtain configuration from: https://giscus.app/
     giscusTalk({
-      repo: 'LKM-lkm/nolebase-template',
-      repoId: 'R_kgDOPErUqw',
+      repo: 'LKM-lkm/Likems-nolebase-template',
+      repoId: 'R_kgDOPX7Z7A',
       category: 'Announcements', // default: `General`
-      categoryId: 'DIC_kwDOPErUq84CsTc1',
+      categoryId: 'DIC_kwDOPX7Z7M4CuX1q',
       mapping: 'pathname', // default: `pathname`
       inputPosition: 'top', // default: `top`
       lang: 'zh-CN', // default: `zh-CN`
+      loading: 'lazy', // default: `lazy`
+      
       // i18n setting (Note: This configuration will override the default language set by lang)
       // Configured as an object with key-value pairs inside:
       // [your i18n configuration name]: [corresponds to the language pack name in Giscus]
