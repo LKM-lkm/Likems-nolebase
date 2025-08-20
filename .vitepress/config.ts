@@ -164,6 +164,12 @@ export default defineConfig({
           },
           chtml: {
             displayAlign: 'center'
+          },
+          startup: {
+            ready: () => {
+              MathJax.startup.defaultReady();
+              MathJax.startup.document.menu.settings.renderer = 'CHTML';
+            }
           }
         };
       `
@@ -273,7 +279,7 @@ export default defineConfig({
       light: 'github-light',
       dark: 'one-dark-pro',
     },
-    math: true,
+    math: false,
     config: (md: any) => {
       md.use(MarkdownItFootnote)
 
