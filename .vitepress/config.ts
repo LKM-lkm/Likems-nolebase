@@ -276,8 +276,7 @@ export default defineConfig({
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           displayMath: [['$$', '$$'], ['\\[', '\\]']]
-        },
-        output: 'chtml'
+        }
       })
       md.use(BiDirectionalLinks({
         dir: process.cwd(),
