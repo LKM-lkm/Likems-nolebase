@@ -148,39 +148,28 @@ export default defineConfig({
       name: 'msapplication-TileColor',
       content: '#603cba',
     }],
-    // TeX Gyre Termes 字体
-    ['link', { 
-      rel: 'stylesheet', 
-      href: '/fonts/tex-gyre-termes.css' 
-    }],
-    // MathJax 全局配置
+
+    // MathJax v4 配置
     ['script', {
       innerHTML: `
         window.MathJax = {
+          loader: {
+            load: ['input/tex', 'output/chtml']
+          },
+          output: {
+            font: 'mathjax-termes'
+          },
           tex: {
             inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-            displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
-            processEscapes: true
-          },
-          chtml: {
-            font: 'TeX Gyre Termes, serif',
-            adaptiveCSS: true,
-            matchFontHeight: false
-          },
-          svg: {
-            font: 'TeX Gyre Termes, serif'
-          },
-          startup: {
-            ready() {
-              MathJax.startup.defaultReady();
-              const chtml = MathJax.startup.outputJax;
-              if (chtml) {
-                chtml.font.family = 'TeX Gyre Termes, serif';
-              }
-            }
+            displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
           }
         };
       `
+    }],
+    // MathJax v4 启动脚本
+    ['script', {
+      src: 'https://cdn.jsdelivr.net/npm/mathjax@4/es5/startup.js',
+      async: true
     }],
     // Proxying Plausible through Netlify | Plausible docs
     // https://plausible.io/docs/proxy/guides/netlify

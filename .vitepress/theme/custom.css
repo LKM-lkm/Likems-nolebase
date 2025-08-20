@@ -39,29 +39,6 @@ img {
   content-visibility: auto;
 }
 
-/* MathJax 使用 TeX Gyre Termes 字体 */
-.MathJax {
-  font-family: 'TeX Gyre Termes', serif !important;
-}
 
-.MathJax_Display {
-  font-family: 'TeX Gyre Termes', serif !important;
-}
-
-.MathJax_CHTML {
-  font-family: 'TeX Gyre Termes', serif !important;
-}
-
-.MathJax_SVG {
-  font-family: 'TeX Gyre Termes', serif !important;
-}
-
-.MathJax .mo, .MathJax .mi, .MathJax .mn {
-  font-family: 'TeX Gyre Termes', serif !important;
-}
-
-mjx-container {
-  font-family: 'TeX Gyre Termes', serif !important;
-}
 
 
