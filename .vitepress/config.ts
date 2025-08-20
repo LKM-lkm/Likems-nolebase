@@ -279,7 +279,36 @@ export default defineConfig({
     math: true,
     config: (md: any) => {
       md.use(MarkdownItFootnote)
-      md.use(MarkdownItMathjax3)
+      md.use(MarkdownItMathjax3, {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        options: {
+          renderActions: {
+            addMenu: [0, '', '']
+          }
+        },
+        mathjax: {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          },
+          chtml: {
+            displayAlign: 'center'
+          },
+          output: {
+            font: 'mathjax-termes'
+          },
+          startup: {
+            pageReady() {
+              return MathJax.startup.document.outputJax.font
+                .loadDynamicFiles()
+                .then(() => MathJax.startup.defaultPageReady());
+            }
+          }
+        }
+      })
       md.use(BiDirectionalLinks({
         dir: process.cwd(),
       }))
