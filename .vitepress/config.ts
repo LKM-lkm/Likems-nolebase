@@ -1,6 +1,7 @@
 import process from 'node:process'
 import { defineConfig } from 'vitepress'
 import MarkdownItFootnote from 'markdown-it-footnote'
+import MarkdownItKatex from 'markdown-it-katex'
 
 
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
