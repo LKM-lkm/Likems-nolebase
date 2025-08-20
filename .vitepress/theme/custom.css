@@ -39,38 +39,8 @@ img {
   content-visibility: auto;
 }
 
-/* TeX Gyre Termes字体 */
-@font-face {
-  font-family: 'TeX Gyre Termes';
-  src: url('/fonts/TeXGyreTermes-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'TeX Gyre Termes';
-  src: url('/fonts/TeXGyreTermes-BoldItalic.woff2') format('woff2');
-  font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'TeX Gyre Termes';
-  src: url('/fonts/TeXGyreTermes-Bold.woff2') format('woff2');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'TeX Gyre Termes';
-  src: url('/fonts/TeXGyreTermes-Italic.woff2') format('woff2');
-  font-weight: normal;
-  font-style: italic;
-}
-
-/* MathJax CHTML输出样式 */
+/* MathJax样式优化 */
 mjx-container[jax="CHTML"] {
-  font-family: 'TeX Gyre Termes', 'Times New Roman', serif !important;
   font-size: 1.1em;
 }
 

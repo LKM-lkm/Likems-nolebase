@@ -159,6 +159,9 @@ export default defineConfig({
             inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
             displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
           },
+          output: {
+            font: 'mathjax-termes'
+          },
           chtml: {
             displayAlign: 'center'
           }
