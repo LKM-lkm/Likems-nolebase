@@ -176,9 +176,9 @@ export default defineConfig({
         };
       `
     }],
-    // MathJax v4 组件 (nofont 版本)
+    // MathJax v4 startup.js
     ['script', {
-      src: 'https://fastly.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml-nofont.js',
+      src: 'https://fastly.jsdelivr.net/npm/mathjax@4.0.0/startup.js',
       async: true
     }],
     // Proxying Plausible through Netlify | Plausible docs
