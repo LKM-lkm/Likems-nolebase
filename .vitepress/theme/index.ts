@@ -153,6 +153,21 @@ const ExtendedTheme: Theme = {
     const { frontmatter } = toRefs(useData());
     const route = useRoute();
     
+    // MathJax 重新渲染
+    if (typeof window !== 'undefined') {
+      const renderMath = () => {
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          window.MathJax.typesetPromise().catch(err => console.log(err));
+        }
+      };
+      
+      // 初始加载时渲染
+      setTimeout(renderMath, 100);
+      
+      // 路由变化时重新渲染
+      route && route.path && setTimeout(renderMath, 200);
+    }
+    
     // Obtain configuration from: https://giscus.app/
     giscusTalk({
       repo: 'LKM-lkm/Likems-nolebase-template',
