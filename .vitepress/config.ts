@@ -159,6 +159,9 @@ export default defineConfig({
           output: {
             font: 'mathjax-termes'
           },
+          chtml: {
+            displayAlign: 'center'
+          },
           tex: {
             inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
             displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
@@ -166,9 +169,9 @@ export default defineConfig({
         };
       `
     }],
-    // MathJax v4 启动脚本
+    // MathJax v4 CHTML 组件
     ['script', {
-      src: 'https://cdn.jsdelivr.net/npm/mathjax@4/es5/startup.js',
+      src: 'https://fastly.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js',
       async: true
     }],
     // Proxying Plausible through Netlify | Plausible docs
