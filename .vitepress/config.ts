@@ -1,7 +1,7 @@
 import process from 'node:process'
 import { defineConfig } from 'vitepress'
 import MarkdownItFootnote from 'markdown-it-footnote'
-import MarkdownItMathjax3 from 'markdown-it-mathjax3'
+// import MarkdownItMathjax3 from 'markdown-it-mathjax3'
 
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
 import { InlineLinkPreviewElementTransform } from '@nolebase/vitepress-plugin-inline-link-preview/markdown-it'
@@ -279,36 +279,7 @@ export default defineConfig({
     math: true,
     config: (md: any) => {
       md.use(MarkdownItFootnote)
-      md.use(MarkdownItMathjax3, {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
-        },
-        options: {
-          renderActions: {
-            addMenu: [0, '', '']
-          }
-        },
-        mathjax: {
-          tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']],
-            displayMath: [['$$', '$$'], ['\\[', '\\]']]
-          },
-          chtml: {
-            displayAlign: 'center'
-          },
-          output: {
-            font: 'mathjax-termes'
-          },
-          startup: {
-            pageReady() {
-              return MathJax.startup.document.outputJax.font
-                .loadDynamicFiles()
-                .then(() => MathJax.startup.defaultPageReady());
-            }
-          }
-        }
-      })
+      // md.use(MarkdownItMathjax3) - 移除以使用原生MathJax配置
       md.use(BiDirectionalLinks({
         dir: process.cwd(),
       }))
