@@ -148,6 +148,11 @@ export default defineConfig({
       name: 'msapplication-TileColor',
       content: '#603cba',
     }],
+    // TeX Gyre Termes 字体用于数学公式
+    ['link', { 
+      rel: 'stylesheet', 
+      href: 'https://fonts.cdnfonts.com/css/tex-gyre-termes' 
+    }],
     // Proxying Plausible through Netlify | Plausible docs
     // https://plausible.io/docs/proxy/guides/netlify
     ['script', { 'defer': 'true', 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
