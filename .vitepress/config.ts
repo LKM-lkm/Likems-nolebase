@@ -150,6 +150,12 @@ export default defineConfig({
       content: '#603cba',
     }],
 
+    // KaTeX CSS
+    ['link', {
+      rel: 'stylesheet',
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css'
+    }],
+
     // MathJax v4 配置
     ['script', {
       innerHTML: `
@@ -270,9 +276,10 @@ export default defineConfig({
       light: 'github-light',
       dark: 'one-dark-pro',
     },
-    math: true,
+    math: false,
     config: (md: any) => {
       md.use(MarkdownItFootnote)
+      md.use(MarkdownItKatex)
 
       md.use(BiDirectionalLinks({
         dir: process.cwd(),

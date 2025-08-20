@@ -42,3 +42,11 @@ img {
 
 
 
+/* KaTeX数学公式字体 */
+.katex {
+  font-family: 'TeX Gyre Termes', 'Times New Roman', serif !important;
+}
+
+.katex .mathnormal {
+  font-family: 'TeX Gyre Termes', 'Times New Roman', serif !important;
+}
