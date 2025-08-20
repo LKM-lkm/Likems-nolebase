@@ -153,9 +153,6 @@ export default defineConfig({
     ['script', {
       innerHTML: `
         window.MathJax = {
-          loader: {
-            load: ['input/tex', 'output/chtml']
-          },
           output: {
             font: 'mathjax-termes'
           },
@@ -176,9 +173,9 @@ export default defineConfig({
         };
       `
     }],
-    // MathJax v4 组件
+    // MathJax v4 组件 (nofont 版本)
     ['script', {
-      src: 'https://fastly.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js',
+      src: 'https://fastly.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml-nofont.js',
       async: true
     }],
     // Proxying Plausible through Netlify | Plausible docs
@@ -282,9 +279,7 @@ export default defineConfig({
     math: true,
     config: (md: any) => {
       md.use(MarkdownItFootnote)
-      md.use(MarkdownItMathjax3, {
-        output: 'chtml'
-      })
+      md.use(MarkdownItMathjax3)
       md.use(BiDirectionalLinks({
         dir: process.cwd(),
       }))
