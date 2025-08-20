@@ -165,13 +165,20 @@ export default defineConfig({
           tex: {
             inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
             displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
+          },
+          startup: {
+            pageReady() {
+              return MathJax.startup.document.outputJax.font
+                .loadDynamicFiles()
+                .then(() => MathJax.startup.defaultPageReady());
+            }
           }
         };
       `
     }],
-    // MathJax v4 CHTML 组件
+    // MathJax v4 组件
     ['script', {
-      src: 'https://fastly.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js',
+      src: 'https://fastly.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js',
       async: true
     }],
     // Proxying Plausible through Netlify | Plausible docs
