@@ -1,0 +1,62 @@
+# Artalk 配置文件
+# 官方文档：https://artalk.js.org/guide/backend/config.html
+# GitHub 仓库：https://github.com/ArtalkJS/Artalk
+
+# 加密密钥 (必须配置)
+app_key: "your-secret-key-here"
+
+# 语言设置
+locale: zh-CN
+
+# 数据库配置
+db:
+  type: sqlite
+  file: ./data/artalk.db
+
+# HTTP 服务器配置
+http:
+  body_limit: 100
+  proxy_header: "X-Forwarded-For"
+
+# 监听地址和端口
+host: "0.0.0.0"
+port: 23366
+
+# 可信域名 (前端页面域名)
+trusted_domains:
+  - "https://nolebase-template.vercel.app"
+  - "http://localhost:5173"
+
+# 默认站点
+site_default: "Nolebase Template"
+
+# 管理员用户 (启动后通过命令行创建)
+admin_users: []
+
+# 前端界面配置
+frontend:
+  placeholder: "键入内容..."
+  noComment: "「此时无声胜有声」"
+  sendBtn: "发送评论"
+  emoticons: "https://raw.githubusercontent.com/ArtalkJS/Emoticons/master/grps/default.json"
+
+# 缓存配置
+cache:
+  enabled: false
+  type: builtin
+  expires: 30
+  warm_up: false
+
+# 时区配置
+timezone: "Asia/Shanghai"
+
+# 登录超时 (3天)
+login_timeout: 259200
+
+# 日志配置
+log:
+  enabled: true
+  filename: ./data/artalk.log
+
+# 调试模式
+debug: false

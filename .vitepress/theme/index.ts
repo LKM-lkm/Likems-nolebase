@@ -42,6 +42,7 @@ import HomePage from './components/HomePage.vue'
 import Share from './components/Share.vue'
 import TocList from './components/TocList.vue'
 import NavExtra from './components/NavExtra.vue'
+import ArtalkComment from './components/ArtalkComment.vue'
 
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 import '@nolebase/vitepress-plugin-highlight-targeted-heading/client/style.css'
@@ -94,6 +95,7 @@ const ExtendedTheme: Theme = {
     app.component('AppContainer', AppContainer)
     app.component('NolebaseUnlazyImg', NolebaseUnlazyImg)
     app.component('NavExtra', NavExtra)
+    app.component('ArtalkComment', ArtalkComment)
 
     app.provide(NolebaseEnhancedReadabilitiesInjectionKey, {
       layoutSwitch: {
