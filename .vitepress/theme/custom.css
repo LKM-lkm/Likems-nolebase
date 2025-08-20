@@ -42,9 +42,16 @@ img {
 /* TeX Gyre Termes字体 */
 @font-face {
   font-family: 'TeX Gyre Termes';
-  src: url('/fonts/TeXGyreTermes-Regular.otf') format('opentype');
+  src: url('/fonts/TeXGyreTermes-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'TeX Gyre Termes';
+  src: url('/fonts/TeXGyreTermes-BoldItalic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
 }
 
 @font-face {

@@ -157,32 +157,17 @@ export default defineConfig({
         window.MathJax = {
           tex: {
             inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-            displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
-            processEscapes: true,
-            processEnvironments: true
+            displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
           },
           chtml: {
-            displayAlign: 'center',
-            fontURL: 'https://cdn.jsdelivr.net/npm/mathjax@4/es5/output/chtml/fonts/woff-v2'
-          },
-          startup: {
-            ready: () => {
-              MathJax.startup.defaultReady();
-              const style = document.createElement('style');
-              style.innerHTML = \`
-                mjx-container[jax="CHTML"] {
-                  font-family: 'TeX Gyre Termes', 'Times New Roman', serif !important;
-                }
-              \`;
-              document.head.appendChild(style);
-            }
+            displayAlign: 'center'
           }
         };
       `
     }],
     // MathJax v4 CHTML
     ['script', {
-      src: 'https://cdn.jsdelivr.net/npm/mathjax@4/es5/tex-chtml.js',
+      src: 'https://fastly.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js',
       async: 'true'
     }],
 
@@ -285,7 +270,7 @@ export default defineConfig({
       light: 'github-light',
       dark: 'one-dark-pro',
     },
-    math: false,
+    math: true,
     config: (md: any) => {
       md.use(MarkdownItFootnote)
 
