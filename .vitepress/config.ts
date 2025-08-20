@@ -150,34 +150,23 @@ export default defineConfig({
       content: '#603cba',
     }],
 
+    // TeX Gyre Termes字体
+    ['link', {
+      rel: 'preload',
+      href: 'https://fonts.googleapis.com/css2?family=TeX+Gyre+Termes:ital,wght@0,400;0,700;1,400;1,700&display=swap',
+      as: 'style'
+    }],
+    ['link', {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=TeX+Gyre+Termes:ital,wght@0,400;0,700;1,400;1,700&display=swap'
+    }],
     // KaTeX CSS
     ['link', {
       rel: 'stylesheet',
       href: 'https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css'
     }],
 
-    // MathJax v4 配置
-    ['script', {
-      innerHTML: `
-        window.MathJax = {
-          tex: {
-            inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-            displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
-          },
-          chtml: {
-            displayAlign: 'center'
-          },
-          output: {
-            font: 'mathjax-termes'
-          }
-        };
-      `
-    }],
-    // MathJax v4 CHTML 组件
-    ['script', {
-      src: 'https://fastly.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js',
-      async: 'true'
-    }],
+
     // Proxying Plausible through Netlify | Plausible docs
     // https://plausible.io/docs/proxy/guides/netlify
     ['script', { 'defer': 'true', 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],

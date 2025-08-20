@@ -50,3 +50,27 @@ img {
 .katex .mathnormal {
   font-family: 'TeX Gyre Termes', 'Times New Roman', serif !important;
 }
+.katex .mathnormal,
+.katex .mathit,
+.katex .mathrm {
+  font-family: 'TeX Gyre Termes', 'Times New Roman', serif !important;
+}
+
+.katex .mathbf {
+  font-family: 'TeX Gyre Termes', 'Times New Roman', serif !important;
+  font-weight: bold;
+}
+/* 修复KaTeX垂直对齐问题 */
+.katex {
+  vertical-align: baseline !important;
+}
+
+.katex-display {
+  margin: 1em 0 !important;
+  text-align: center !important;
+}
+
+/* 修复行内公式对齐 */
+.katex-inline {
+  vertical-align: -0.1em !important;
+}
