@@ -36,7 +36,7 @@ Global CDN sponsored by [Cloudflare](https://cloudflare.com/)
 font-family: InterVariable, sans-serif;
 ```
 
-## 2. # Sarasa Gothic 更纱黑体
+## 2. Sarasa Gothic 更纱黑体
 - 来源：[Sarasa Gothic 更纱黑体 - ZeoSeven Fonts, 释放字体自由 | WebFontsAPI & FontsPKG](https://fonts.zeoseven.com/items/161/#embed))
 ### 全部版本
 ```
