@@ -25,3 +25,4 @@ tags:
 
 ## Cloudflare自建节点
 - YouTube视频：
+<iframe width="1102" height="716" src="https://www.youtube.com/embed/HQcLxYbPSgo" title="终极代理方案 | cf worker 节点搭建 | 无需 proxyip | 可固定 IP | 解决看 Twitch 直播报错 ｜跑满家用带宽 ｜ 无限流量" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
