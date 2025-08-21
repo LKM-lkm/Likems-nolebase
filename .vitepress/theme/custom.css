@@ -39,7 +39,11 @@ img {
   content-visibility: auto;
 }
 
-/* MathJax样式优化 */
+
+/* ------------------------------
+   📐 MathJax 样式优化
+------------------------------ */
+
 mjx-container[jax="CHTML"] {
   font-size: 1.1em;
 }

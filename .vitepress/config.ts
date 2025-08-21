@@ -26,11 +26,11 @@ export default defineConfig({
       },
     },
   },
+
   vite: {
     build: {
       rollupOptions: {
         output: {
-
           assetFileNames: (assetInfo) => {
             const info = assetInfo.name?.split('.') || []
             const ext = info[info.length - 1]
@@ -53,6 +53,24 @@ export default defineConfig({
       },
     },
   },
+
+  markdown: {
+    theme: {
+      light: 'github-light',
+      dark: 'one-dark-pro',
+    },
+    math: false,
+    config: (md: any) => {
+      md.inline.ruler.disable?.(['math_inline']);
+      md.block.ruler.disable?.(['math_block']);
+
+      md.use(MarkdownItFootnote);
+      md.use(BiDirectionalLinks({ dir: process.cwd() }));
+      md.use(UnlazyImages(), { imgElementTag: 'NolebaseUnlazyImg' });
+      md.use(InlineLinkPreviewElementTransform, { tag: 'VPNolebaseInlineLinkPreview' });
+    },
+  },
+
   lang: 'zh-CN',
   title: siteName,
   description: siteDescription,
@@ -150,47 +168,32 @@ export default defineConfig({
       content: '#603cba',
     }],
 
-    // MathJax v4 配置
-    ['script', {
-      innerHTML: `
-        window.MathJax = {
-          tex: {
-            inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-            displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
-          },
-          output: {
-            font: 'mathjax-termes'
-          },
-          chtml: {
-            displayAlign: 'center'
-          }
-        };
-      `
-    }],
-    // MathJax v4 加载
-    ['script', {
-      src: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
-      defer: 'true'
-    }],
+    // MathJax 配置脚本（必须在加载脚本之前定义）
+['script', {}, `
+  window.MathJax = {
+    loader: { load: ['input/tex', 'output/chtml'] },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\
 
-    // MathJax 配置
-    ['script', {
-      innerHTML: `
-        window.MathJax = {
-          tex: {
-            inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-            displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
-          },
-          output: {
-            font: 'mathjax-termes'
-          }
-        };
-      `
-    }],
+\[', '\\]
 
+']]
+    },
+    output: {
+      font: 'https://cdn.jsdelivr.net/npm/@mathjax/mathjax-termes-font@4.0.0'
+    },
+    chtml: {
+      displayAlign: 'center'
+    }
+  };
+`],
 
-
-
+// 加载 MathJax v4 主脚本（不带默认字体）
+['script', {
+  src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml-nofont.js',
+  defer: 'true'
+}],
 
     // Proxying Plausible through Netlify | Plausible docs
     // https://plausible.io/docs/proxy/guides/netlify
@@ -285,27 +288,7 @@ export default defineConfig({
     ],
     sidebar,
   },
-  markdown: {
-    theme: {
-      light: 'github-light',
-      dark: 'one-dark-pro',
-    },
-    math: false,
-    config: (md: any) => {
-      md.use(MarkdownItFootnote)
 
-
-      md.use(BiDirectionalLinks({
-        dir: process.cwd(),
-      }))
-      md.use(UnlazyImages(), {
-        imgElementTag: 'NolebaseUnlazyImg',
-      })
-      md.use(InlineLinkPreviewElementTransform, {
-        tag: 'VPNolebaseInlineLinkPreview',
-      })
-    },
-  },
   async buildEnd(siteConfig) {
     await buildEndGenerateOpenGraphImages({
       baseUrl: targetDomain,
