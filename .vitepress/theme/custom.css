@@ -39,12 +39,7 @@ img {
   content-visibility: auto;
 }
 
-/* MathJax样式优化 */
-mjx-container[jax="CHTML"] {
-  font-size: 1.1em;
-}
-
-mjx-container[jax="CHTML"][display="true"] {
-  margin: 1.5em 0;
-  text-align: center;
+/* MathJax Termes字体防覆盖 */
+mjx-container {
+  font-family: 'MathJax_Termes', serif !important;
 }

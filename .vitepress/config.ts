@@ -151,28 +151,11 @@ export default defineConfig({
     }],
 
 
-    // MathJax v4 配置
-    ['script', {
-      innerHTML: `
-        MathJax = {
-          tex: {
-            inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-            displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
-          },
-          output: {
-            font: 'mathjax-termes'
-          },
-          chtml: {
-            displayAlign: 'center'
-          }
-        };
-      `
-    }],
-    // MathJax v4 CHTML
-    ['script', {
-      src: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
-      defer: 'true'
-    }],
+    // MathJax Termes 字体预加载
+    ['link', { rel: 'preload', href: '/fonts/mathjax-termes/woff2/MathJax_Termes-Regular.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+    ['link', { rel: 'preload', href: '/fonts/mathjax-termes/woff2/MathJax_Termes-Italic.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+    ['link', { rel: 'preload', href: '/fonts/mathjax-termes/woff2/MathJax_Termes-Bold.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
+    ['link', { rel: 'preload', href: '/fonts/mathjax-termes/woff2/MathJax_Termes-BoldItalic.woff2', as: 'font', type: 'font/woff2', crossorigin: '' }],
 
 
     // Proxying Plausible through Netlify | Plausible docs

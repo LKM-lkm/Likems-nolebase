@@ -55,6 +55,7 @@ import 'virtual:uno.css'
 
 import '../styles/main.css'
 import '../styles/vars.css'
+import setupMathJax from './mathjax.js'
 
 import('@nolebase/vitepress-plugin-inline-link-preview/client')
 
@@ -79,7 +80,8 @@ const ExtendedTheme: Theme = {
       ],
     })
   },
-  enhanceApp({ app }) {
+  enhanceApp({ app, router }) {
+    setupMathJax(router)
     /**
      * Have to manually import and register the essential components that needed during build globally.
      *
