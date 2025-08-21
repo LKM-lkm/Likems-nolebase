@@ -16,6 +16,11 @@ export default function setupMathJax(router) {
   const script = document.createElement('script')
   script.src = 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml-nofont.js'
   script.async = true
+  script.onload = () => {
+    setTimeout(() => {
+      window.MathJax?.typesetPromise()
+    }, 100)
+  }
   document.head.appendChild(script)
 
   // 检测 CDN 字体是否加载成功，否则回退到本地
@@ -28,7 +33,17 @@ export default function setupMathJax(router) {
     }
   })
 
-  router.onAfterRouteChanged = () => {
-    window.MathJax?.typesetPromise()
+  // 路由变化时重新渲染
+  if (router && router.onAfterRouteChanged) {
+    router.onAfterRouteChanged = () => {
+      setTimeout(() => {
+        window.MathJax?.typesetPromise()
+      }, 100)
+    }
   }
+  
+  // 初始渲染
+  setTimeout(() => {
+    window.MathJax?.typesetPromise()
+  }, 500)
 }

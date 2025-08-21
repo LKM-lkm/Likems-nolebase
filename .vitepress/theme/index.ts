@@ -55,7 +55,7 @@ import 'virtual:uno.css'
 
 import '../styles/main.css'
 import '../styles/vars.css'
-import setupMathJax from './mathjax.js'
+
 
 import('@nolebase/vitepress-plugin-inline-link-preview/client')
 
@@ -80,8 +80,7 @@ const ExtendedTheme: Theme = {
       ],
     })
   },
-  enhanceApp({ app, router }) {
-    setupMathJax(router)
+
     /**
      * Have to manually import and register the essential components that needed during build globally.
      *
@@ -155,20 +154,7 @@ const ExtendedTheme: Theme = {
     const { frontmatter } = toRefs(useData());
     const route = useRoute();
     
-    // MathJax 重新渲染
-    if (typeof window !== 'undefined') {
-      const renderMath = () => {
-        if (window.MathJax && window.MathJax.typesetPromise) {
-          window.MathJax.typesetPromise().catch(err => console.log(err));
-        }
-      };
-      
-      // 初始加载时渲染
-      setTimeout(renderMath, 100);
-      
-      // 路由变化时重新渲染
-      route && route.path && setTimeout(renderMath, 200);
-    }
+
     
     // Obtain configuration from: https://giscus.app/
     giscusTalk({
