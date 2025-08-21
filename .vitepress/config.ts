@@ -173,6 +173,9 @@ export default defineConfig({
       `window.MathJax = {
         output: {
           font: 'mathjax-termes' // 全局指定使用 mathjax-termes 字体
+        },
+         tex: {
+          inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
         }
       };`
     ],
