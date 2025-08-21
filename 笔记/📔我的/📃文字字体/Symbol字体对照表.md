@@ -31,5 +31,5 @@ Symbol字体最大的特点是将标准键盘字符映射到各种专业符号�
   frameborder="no" 
   allowfullscreen="true" 
   width="100%" 
-  height="500">
+  height="100%">
 </iframe>
