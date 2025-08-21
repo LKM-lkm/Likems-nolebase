@@ -166,17 +166,13 @@ export default defineConfig({
       content: '#603cba',
     }],
 
-    // MathJax 配置脚本（必须在加载脚本之前定义）
+// MathJax 配置脚本（必须在加载脚本之前定义）
 ['script', {}, `
   window.MathJax = {
     loader: { load: ['input/tex', 'output/chtml'] },
     tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\
-
-\[', '\\]
-
-']]
+      inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
+      displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
     },
     output: {
       font: 'https://cdn.jsdelivr.net/npm/@mathjax/mathjax-termes-font@4.0.0'
