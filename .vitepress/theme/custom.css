@@ -40,72 +40,146 @@ img {
 }
 
 
-/* 根据 MathJax 4.0 官方文档的建议修复显示问题 */
+/* Button styles */
+.VPButton.medium.brand {
+  background-color: var(--vp-c-brand-1);
+  color: var(--vp-c-bg);
+}
 
-/* 确保容器不会裁切内容 */
+.VPButton.medium.alt {
+  background-color: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+  border: 1px solid var(--vp-c-divider);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* Performance optimizations */
+* {
+  scroll-behavior: smooth;
+}
+
+img {
+  content-visibility: auto;
+}
+
+/* ============ MathJax 修复样式 ============ */
+
+/* 核心修复：确保容器有足够的空间 */
 .mjx-container {
   overflow: visible !important;
   display: inline-block !important;
-  line-height: 0 !important;
-  text-indent: 0 !important;
-  text-align: left !important;
-  text-transform: none !important;
-  font-style: normal !important;
-  font-weight: normal !important;
-  font-size: 100% !important;
-  font-size-adjust: none !important;
-  letter-spacing: normal !important;
-  word-wrap: normal !important;
-  word-spacing: normal !important;
-  white-space: nowrap !important;
-  float: none !important;
-  direction: ltr !important;
-  max-width: none !important;
-  max-height: none !important;
-  min-width: 0 !important;
-  min-height: 0 !important;
-  border: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* 行内数学公式 */
-.mjx-container[jax="CHTML"][display="false"] {
-  display: inline !important;
   vertical-align: baseline !important;
+  line-height: normal !important;
+  font-size: 100% !important;
+  
+  /* 关键：增加内边距防止字符被裁切 */
+  padding: 0.3em 0.2em !important;
+  margin: 0.1em 0.2em !important;
+  
+  /* 确保有足够的高度和宽度 */
+  min-height: 1.2em !important;
+  box-sizing: content-box !important;
 }
 
-/* 块级数学公式 */
+/* 行内公式特殊处理 */
+.mjx-container[jax="CHTML"][display="false"] {
+  display: inline-block !important;
+  vertical-align: -0.25em !important;
+  padding: 0.4em 0.15em 0.2em 0.15em !important;
+  margin: 0 0.1em !important;
+  line-height: 1.4 !important;
+}
+
+/* 块级公式特殊处理 */
 .mjx-container[jax="CHTML"][display="true"] {
   display: block !important;
   text-align: center !important;
-  margin: 1em 0 !important;
+  padding: 0.6em 0.3em !important;
+  margin: 1em auto !important;
+  width: auto !important;
+  overflow: visible !important;
 }
 
-/* 确保数学元素正确显示 */
+/* 确保数学内容本身不被裁切 */
 .mjx-math {
+  overflow: visible !important;
   display: inline-block !important;
-  text-align: left !important;
-  line-height: 0 !important;
-  text-indent: 0 !important;
+  line-height: normal !important;
+  font-size: inherit !important;
+  
+  /* 给数学内容足够的空间 */
+  padding: 0.1em !important;
+  min-height: 1em !important;
 }
 
-/* 修复字符高度问题 */
-mjx-container mjx-math {
-  line-height: 0 !important;
+/* 修复各种数学符号的显示 */
+mjx-container mjx-math mjx-mrow,
+mjx-container mjx-math mjx-mo,
+mjx-container mjx-math mjx-mi,
+mjx-container mjx-math mjx-mn {
+  overflow: visible !important;
+  display: inline-block !important;
+  line-height: normal !important;
 }
 
-/* 暗色模式支持 */
+/* 特别修复大型运算符（如积分、求和等） */
+mjx-container mjx-math mjx-msubsup,
+mjx-container mjx-math mjx-munderover {
+  overflow: visible !important;
+  display: inline-block !important;
+  vertical-align: baseline !important;
+  padding: 0.2em 0 !important;
+}
+
+/* 修复分数显示 */
+mjx-container mjx-math mjx-mfrac {
+  overflow: visible !important;
+  display: inline-block !important;
+  vertical-align: -0.5em !important;
+  padding: 0.3em 0.1em !important;
+}
+
+/* 在段落中的公式 */
+p .mjx-container {
+  overflow: visible !important;
+  vertical-align: baseline !important;
+  padding: 0.4em 0.15em 0.3em 0.15em !important;
+}
+
+/* VitePress 特定修复 */
+.vp-doc .mjx-container {
+  overflow: visible !important;
+  font-size: 1.05em !important;
+}
+
+/* 引用块中的公式 */
+blockquote .mjx-container {
+  overflow: visible !important;
+  padding: 0.4em 0.2em !important;
+}
+
+/* 列表中的公式 */
+li .mjx-container {
+  overflow: visible !important;
+  padding: 0.3em 0.15em !important;
+}
+
+/* 重置可能干扰的全局样式 */
+.mjx-container * {
+  box-sizing: content-box !important;
+  overflow: visible !important;
+}
+
+/* 暗色模式适配 */
 .dark .mjx-container {
   color: var(--vp-c-text-1) !important;
 }
 
-/* 确保在 VitePress 中正确显示 */
-.vp-doc .mjx-container {
-  vertical-align: baseline !important;
-}
-
-/* 重置可能干扰的样式 */
-.mjx-container * {
-  box-sizing: content-box !important;
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .mjx-container {
+    padding: 0.4em 0.25em !important;
+    font-size: 0.95em !important;
+  }
 }
