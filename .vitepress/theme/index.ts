@@ -80,7 +80,7 @@ const ExtendedTheme: Theme = {
       ],
     })
   },
-
+  enhanceApp({ app }) {
     /**
      * Have to manually import and register the essential components that needed during build globally.
      *
