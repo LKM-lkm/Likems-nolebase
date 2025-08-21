@@ -1,8 +1,9 @@
 ---
 tags:
   - 科学上网
+  - 节点
 ---
-# 科学上网
+# Great Firewall
 
 ## 免费软件推荐
 
@@ -23,3 +24,4 @@ tags:
 	- [邀请链接](https://ikuuu.de/auth/register?code=TAmS)
 
 ## Cloudflare自建节点
+- YouTube视频：

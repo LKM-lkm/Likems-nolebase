@@ -174,6 +174,12 @@ export default defineConfig({
         output: {
           font: 'mathjax-termes' // 全局指定使用 mathjax-termes 字体
         }
+          // --- V V V 添加下面这个 'tex' 配置块 V V V ---
+        tex: {
+          // 启用 $...$ 和 \\(...\\) 作为行内公式的定界符
+          inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
+        }
+        // --- ^ ^ ^ 添加上面这个 'tex' 配置块 ^ ^ ^ ---
       };`
     ],
     // 注入 MathJax v4 的主脚本 (-nofont 版本以优化性能)
