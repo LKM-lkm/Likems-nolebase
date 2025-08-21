@@ -61,27 +61,27 @@ export default defineConfig({
   head: [
     // ... 你其他的 meta 和 link 标签 ...
 
-    // 1. 注入 MathJax v4 的配置脚本
-    [
-      'script',
-      {}, // 空对象表示没有额外属性
-      `window.MathJax = {
-        output: {
-          font: 'mathjax-termes' // 全局指定使用 TeX Gyre Termes 字体
-        },
-        tex: {
-          inlineMath: [['$', '$'], ['\\\\(', '\\\\)']] // 启用 $...$ 作为行内公式定界符
-        }
-      };`
-    ],
-    // 2. 注入 MathJax v4 的主脚本 (使用 -nofont 版本以优化性能)
-    [
-      'script',
-      {
-        src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.4/tex-chtml-nofont.js',
-        async: '', // 使用空字符串来满足 TypeScript 类型检查
-      },
-    ],
+     // 注入 MathJax v4 的配置
+    [
+      'script',
+      {}, // 空对象表示没有额外属性
+      `window.MathJax = {
+        output: {
+          font: 'mathjax-termes' // 全局指定使用 mathjax-termes 字体
+        },
+         tex: {
+          inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
+        }
+      };`
+    ],
+    // 注入 MathJax v4 的主脚本 (-nofont 版本以优化性能)
+    [
+      'script',
+      {
+        src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.4/tex-chtml-nofont.js',
+        async: 'true',
+      },
+    ],
 
     // ... 你其他的 head 内容 ...
   ],
