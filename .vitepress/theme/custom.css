@@ -1,46 +1,4 @@
-.VPButton.medium.brand {
-  background-color: var(--vp-c-brand-1) !important;
-}
-
-.VPButton.medium.alt {
-  background-color: var(--vp-c-bg-soft) !important;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--vp-c-divider);
-}
-
-.VPNav {
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.7) !important;
-}
-
-.dark .VPNav {
-  background: rgba(36, 36, 36, 0.7) !important;
-}
-
-.VPSidebar {
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.7) !important;
-}
-
-.dark .VPSidebar {
-  background: rgba(36, 36, 36, 0.7) !important;
-}
-
-/* 优化滚动性能 */
-* {
-  scroll-behavior: smooth;
-}
-
-/* 优化图片加载 */
-img {
-  content-visibility: auto;
-}
-
-
-/* Button styles */
+/* 按钮样式优化 */
 .VPButton.medium.brand {
   background-color: var(--vp-c-brand-1);
   color: var(--vp-c-bg);
@@ -50,11 +8,23 @@ img {
   background-color: var(--vp-c-bg-soft);
   color: var(--vp-c-text-1);
   border: 1px solid var(--vp-c-divider);
-  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-/* Performance optimizations */
+/* 导航与侧边栏模糊背景 */
+.VPNav, .VPSidebar {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.dark .VPNav,
+.dark .VPSidebar {
+  background: rgba(36, 36, 36, 0.7);
+}
+
+/* 性能优化 */
 * {
   scroll-behavior: smooth;
 }
@@ -63,123 +33,5 @@ img {
   content-visibility: auto;
 }
 
-/* ============ MathJax 修复样式 ============ */
-
-/* 核心修复：确保容器有足够的空间 */
-.mjx-container {
-  overflow: visible !important;
-  display: inline-block !important;
-  vertical-align: baseline !important;
-  line-height: normal !important;
-  font-size: 100% !important;
-  
-  /* 关键：增加内边距防止字符被裁切 */
-  padding: 0.3em 0.2em !important;
-  margin: 0.1em 0.2em !important;
-  
-  /* 确保有足够的高度和宽度 */
-  min-height: 1.2em !important;
-  box-sizing: content-box !important;
-}
-
-/* 行内公式特殊处理 */
-.mjx-container[jax="CHTML"][display="false"] {
-  display: inline-block !important;
-  vertical-align: -0.25em !important;
-  padding: 0.4em 0.15em 0.2em 0.15em !important;
-  margin: 0 0.1em !important;
-  line-height: 1.4 !important;
-}
-
-/* 块级公式特殊处理 */
-.mjx-container[jax="CHTML"][display="true"] {
-  display: block !important;
-  text-align: center !important;
-  padding: 0.6em 0.3em !important;
-  margin: 1em auto !important;
-  width: auto !important;
-  overflow: visible !important;
-}
-
-/* 确保数学内容本身不被裁切 */
-.mjx-math {
-  overflow: visible !important;
-  display: inline-block !important;
-  line-height: normal !important;
-  font-size: inherit !important;
-  
-  /* 给数学内容足够的空间 */
-  padding: 0.1em !important;
-  min-height: 1em !important;
-}
-
-/* 修复各种数学符号的显示 */
-mjx-container mjx-math mjx-mrow,
-mjx-container mjx-math mjx-mo,
-mjx-container mjx-math mjx-mi,
-mjx-container mjx-math mjx-mn {
-  overflow: visible !important;
-  display: inline-block !important;
-  line-height: normal !important;
-}
-
-/* 特别修复大型运算符（如积分、求和等） */
-mjx-container mjx-math mjx-msubsup,
-mjx-container mjx-math mjx-munderover {
-  overflow: visible !important;
-  display: inline-block !important;
-  vertical-align: baseline !important;
-  padding: 0.2em 0 !important;
-}
-
-/* 修复分数显示 */
-mjx-container mjx-math mjx-mfrac {
-  overflow: visible !important;
-  display: inline-block !important;
-  vertical-align: -0.5em !important;
-  padding: 0.3em 0.1em !important;
-}
-
-/* 在段落中的公式 */
-p .mjx-container {
-  overflow: visible !important;
-  vertical-align: baseline !important;
-  padding: 0.4em 0.15em 0.3em 0.15em !important;
-}
-
-/* VitePress 特定修复 */
-.vp-doc .mjx-container {
-  overflow: visible !important;
-  font-size: 1.05em !important;
-}
-
-/* 引用块中的公式 */
-blockquote .mjx-container {
-  overflow: visible !important;
-  padding: 0.4em 0.2em !important;
-}
-
-/* 列表中的公式 */
-li .mjx-container {
-  overflow: visible !important;
-  padding: 0.3em 0.15em !important;
-}
-
-/* 重置可能干扰的全局样式 */
-.mjx-container * {
-  box-sizing: content-box !important;
-  overflow: visible !important;
-}
-
-/* 暗色模式适配 */
-.dark .mjx-container {
-  color: var(--vp-c-text-1) !important;
-}
-
-/* 响应式调整 */
-@media (max-width: 768px) {
-  .mjx-container {
-    padding: 0.4em 0.25em !important;
-    font-size: 0.95em !important;
-  }
-}
+/* 引入 MathJax 样式模块 */
+@import './mathjax.css';
