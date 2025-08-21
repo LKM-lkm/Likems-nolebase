@@ -184,6 +184,12 @@ export default defineConfig({
 
 ---
 
+### Part 3：MathJax 渲染效果
+
+[MathJax LaTeX 综合测试页面](../MathJax%20LaTeX%20综合测试页面.md)
+
+---
+
 ### 结语
 
 恭喜！你已经成功地为你的 VitePress 网站装备了强大而美观的 MathJax v4 渲染引擎。通过简单的几步配置，你不仅可以使用经典的 Termes 字体来展示公式，还了解了如何在 Markdown 环境中避免常见的语法陷阱。

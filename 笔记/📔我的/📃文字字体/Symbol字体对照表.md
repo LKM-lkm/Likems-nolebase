@@ -24,3 +24,12 @@ Symbol字体最大的特点是将标准键盘字符映射到各种专业符号�
 
 为了帮助大家更好地使用Symbol字体，我整理了一份详细的键盘输入与符号显示对照表。这个表格涵盖了最常用的希腊字母、数学符号和特殊符号，让你能够快速查找所需的符号及其对应的键盘输入方法。
 - [对照表](https://likemsblog.netlify.app/Extra_Pages/Symbol字体键盘输入对照表.html)
+
+<iframe 
+  src="https://likemsblog.netlify.app/Extra_Pages/Symbol字体键盘输入对照表.html" 
+  scrolling="no" 
+  frameborder="no" 
+  allowfullscreen="true" 
+  width="100%" 
+  height="500">
+</iframe>
