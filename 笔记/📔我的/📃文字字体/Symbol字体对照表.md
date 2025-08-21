@@ -27,9 +27,9 @@ Symbol字体最大的特点是将标准键盘字符映射到各种专业符号�
 
 <iframe 
   src="https://likemsblog.netlify.app/Extra_Pages/Symbol字体键盘输入对照表.html" 
-  scrolling="no" 
+  scrolling="true" 
   frameborder="no" 
   allowfullscreen="true" 
   width="100%" 
-  height="100%">
+  height="4000">
 </iframe>
