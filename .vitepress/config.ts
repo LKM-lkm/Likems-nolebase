@@ -166,24 +166,31 @@ export default defineConfig({
       content: '#603cba',
     }],
 
-// MathJax 配置脚本（必须在加载脚本之前定义）
+// 使用 Termes 字体的正确配置
 ['script', {}, `
   window.MathJax = {
-    loader: { load: ['input/tex', 'output/chtml'] },
     tex: {
       inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-      displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
-    },
-    output: {
-      font: 'https://cdn.jsdelivr.net/npm/@mathjax/mathjax-termes-font@4.0.0'
+      displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
+      processEscapes: true
     },
     chtml: {
-      displayAlign: 'center'
+      scale: 1,
+      minScale: 0.5,
+      matchFontHeight: false,
+      displayAlign: 'center',
+      fontURL: 'https://cdn.jsdelivr.net/npm/mathjax-termes-font@1.1.0/woff-v2'
+    },
+    startup: {
+      ready: () => {
+        MathJax.startup.defaultReady();
+        console.log('MathJax with Termes font loaded');
+      }
     }
   };
 `],
 
-// 加载 MathJax v4 主脚本（不带默认字体）
+// 使用 no-font 版本，配合外部字体
 ['script', {
   src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml-nofont.js',
   defer: 'true'

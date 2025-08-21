@@ -40,15 +40,72 @@ img {
 }
 
 
-/* ------------------------------
-   📐 MathJax 样式优化
------------------------------- */
+/* 根据 MathJax 4.0 官方文档的建议修复显示问题 */
 
-mjx-container[jax="CHTML"] {
-  font-size: 1.1em;
+/* 确保容器不会裁切内容 */
+.mjx-container {
+  overflow: visible !important;
+  display: inline-block !important;
+  line-height: 0 !important;
+  text-indent: 0 !important;
+  text-align: left !important;
+  text-transform: none !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 100% !important;
+  font-size-adjust: none !important;
+  letter-spacing: normal !important;
+  word-wrap: normal !important;
+  word-spacing: normal !important;
+  white-space: nowrap !important;
+  float: none !important;
+  direction: ltr !important;
+  max-width: none !important;
+  max-height: none !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-mjx-container[jax="CHTML"][display="true"] {
-  margin: 1.5em 0;
-  text-align: center;
+/* 行内数学公式 */
+.mjx-container[jax="CHTML"][display="false"] {
+  display: inline !important;
+  vertical-align: baseline !important;
+}
+
+/* 块级数学公式 */
+.mjx-container[jax="CHTML"][display="true"] {
+  display: block !important;
+  text-align: center !important;
+  margin: 1em 0 !important;
+}
+
+/* 确保数学元素正确显示 */
+.mjx-math {
+  display: inline-block !important;
+  text-align: left !important;
+  line-height: 0 !important;
+  text-indent: 0 !important;
+}
+
+/* 修复字符高度问题 */
+mjx-container mjx-math {
+  line-height: 0 !important;
+}
+
+/* 暗色模式支持 */
+.dark .mjx-container {
+  color: var(--vp-c-text-1) !important;
+}
+
+/* 确保在 VitePress 中正确显示 */
+.vp-doc .mjx-container {
+  vertical-align: baseline !important;
+}
+
+/* 重置可能干扰的样式 */
+.mjx-container * {
+  box-sizing: content-box !important;
 }
