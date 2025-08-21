@@ -2,6 +2,7 @@
 tags:
   - 数学
   - 文字渲染
+comment: true
 ---
 
 # VitePress 优雅集成 MathJax v4：打造专业级数学公式显示
