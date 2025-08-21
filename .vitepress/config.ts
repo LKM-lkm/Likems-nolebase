@@ -61,9 +61,7 @@ export default defineConfig({
     },
     math: false,
     config: (md: any) => {
-      md.inline.ruler.disable?.(['math_inline']);
-      md.block.ruler.disable?.(['math_block']);
-
+     
       md.use(MarkdownItFootnote);
       md.use(BiDirectionalLinks({ dir: process.cwd() }));
       md.use(UnlazyImages(), { imgElementTag: 'NolebaseUnlazyImg' });
