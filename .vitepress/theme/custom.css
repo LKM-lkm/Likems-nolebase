@@ -33,5 +33,10 @@ img {
   content-visibility: auto;
 }
 
-/* 引入 MathJax 样式模块 */
-@import './mathjax.css';
+/* 
+ * 修复暗黑模式下 MathJax 公式的颜色。
+ * 这条规则让 MathJax 容器的文字颜色继承 VitePress 主题的当前颜色。
+ */
+.dark mjx-container {
+  color: inherit;
+}
