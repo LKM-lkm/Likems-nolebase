@@ -8,14 +8,14 @@
   background-color: var(--vp-c-bg-soft);
   color: var(--vp-c-text-1);
   border: 1px solid var(--vp-c-divider);
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 /* 导航与侧边栏模糊背景 */
 .VPNav, .VPSidebar {
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.7);
 }
 
@@ -31,6 +31,17 @@
 
 img {
   content-visibility: auto;
+}
+
+
+/*
+ * 在 MathJax 渲染完成前，先将主内容区域设为透明。
+ * 这可以防止用户看到未渲染的 LaTeX 源代码，避免 "闪烁"。
+ * 我们使用 opacity 而不是 visibility 或 display，以便应用平滑的过渡效果。
+*/
+.VPDoc {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 /* 

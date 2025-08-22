@@ -170,16 +170,37 @@ markdown: {
     }],
 
  // 注入 MathJax v4 的配置
-    [
+     [
       'script',
-      {}, // 空对象表示没有额外属性
+      {},// 空对象表示没有额外属性
       `window.MathJax = {
+        // 您原有的配置，保持不变
         output: {
-          font: 'mathjax-termes' // 全局指定使用 mathjax-termes 字体
+          font: 'mathjax-termes'// 全局指定使用 mathjax-termes 字体
         },
-         tex: {
+        tex: {
           inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
+        },
+
+        // --- V V V 新增的部分：用于实现平滑加载 V V V ---
+        startup: {
+          // 这个函数会在 MathJax 核心准备就绪后执行
+          ready: () => {
+            // 先执行 MathJax 默认的启动流程
+            MathJax.startup.defaultReady();
+
+            // 然后，监听 MathJax 完成页面渲染的事件
+            MathJax.startup.promise.then(() => {
+              // 找到我们在 CSS 中隐藏的主内容容器
+              const docElement = document.querySelector('.VPDoc');
+              if (docElement) {
+                // 将其透明度改回 1，触发 CSS 中的淡入动画
+                docElement.style.opacity = 1;
+              }
+            });
+          }
         }
+        // --- ^ ^ ^ 新增的部分结束 ^ ^ ^ ---
       };`
     ],
     // 注入 MathJax v4 的主脚本 (-nofont 版本以优化性能)
@@ -187,7 +208,7 @@ markdown: {
       'script',
       {
         src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.4/tex-chtml-nofont.js',
-        async: 'true',
+        async: '', 
       },
     ],
 
