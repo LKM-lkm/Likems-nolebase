@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      markdown-it-mark:
+        specifier: ^4.0.0
+        version: 4.0.0
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^2.12.2
@@ -2598,6 +2602,9 @@ packages:
 
   markdown-it-footnote@3.0.3:
     resolution: {integrity: sha512-YZMSuCGVZAjzKMn+xqIco9d1cLGxbELHZ9do/TSYVzraooV8ypsppKNmUJ0fVH5ljkCInQAtFpm8Rb3eXSrt5w==}
+
+  markdown-it-mark@4.0.0:
+    resolution: {integrity: sha512-YLhzaOsU9THO/cal0lUjfMjrqSMPjjyjChYM7oyj4DnyaXEzA8gnW6cVJeyCrCVeyesrY2PlEdUYJSPFYL4Nkg==}
 
   markdown-it-mathjax3@4.3.2:
     resolution: {integrity: sha512-TX3GW5NjmupgFtMJGRauioMbbkGsOXAAt1DZ/rzzYmTHqzkO1rNAdiMD4NiruurToPApn2kYy76x02QN26qr2w==}
@@ -6426,6 +6433,8 @@ snapshots:
       markdown-it: 13.0.2
 
   markdown-it-footnote@3.0.3: {}
+
+  markdown-it-mark@4.0.0: {}
 
   markdown-it-mathjax3@4.3.2:
     dependencies:

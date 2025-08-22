@@ -1,6 +1,7 @@
 import process from 'node:process'
 import { defineConfig } from 'vitepress'
 import MarkdownItFootnote from 'markdown-it-footnote'
+import markPlugin from 'markdown-it-mark'; // Import the plugin
 
 
 
@@ -54,20 +55,22 @@ export default defineConfig({
     },
   },
 
-  markdown: {
-    theme: {
-      light: 'github-light',
-      dark: 'one-dark-pro',
-    },
-    math: false,
-    config: (md: any) => {
-     
-      md.use(MarkdownItFootnote);
-      md.use(BiDirectionalLinks({ dir: process.cwd() }));
-      md.use(UnlazyImages(), { imgElementTag: 'NolebaseUnlazyImg' });
-      md.use(InlineLinkPreviewElementTransform, { tag: 'VPNolebaseInlineLinkPreview' });
-    },
+markdown: {
+  theme: {
+    light: 'github-light',
+    dark: 'one-dark-pro',
   },
+  math: false,
+  config: (md: any) => { // 这里 md 的类型可以更具体，例如 markdownit, 如果你有类型定义的话
+    // 直接在这里调用 md.use()
+    md.use(MarkdownItFootnote);
+    md.use(markPlugin);
+    md.use(BiDirectionalLinks({ dir: process.cwd() }));
+    md.use(UnlazyImages(), { imgElementTag: 'NolebaseUnlazyImg' });
+    md.use(InlineLinkPreviewElementTransform, { tag: 'VPNolebaseInlineLinkPreview' });
+  }, // <-- 这里的 } 结束了 config 函数
+  // 如果还有其他 markdown 的配置项，可以写在这里
+},
 
   lang: 'zh-CN',
   title: siteName,
