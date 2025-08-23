@@ -37,4 +37,4 @@ REG ADD HKCU\Software\Avid\Sibelius\SibeliusTierSelection /v TrialDialogSavedCho
 1. [Arno Pro](https://likemsblog.netlify.app/files/Arno_Pro.7z)
 2. [Century OSMT Pro](https://likemsblog.netlify.app/files/Century_OSMT_Pro.zip)
 3. [CenturyNo1SB-Bold](https://likemsblog.netlify.app/files/CenturyNo1SB-Bold.zip)
-4. [日文字体](https://soya.infini-cloud.net/v2/dav/Blog/%E6%97%A5%E6%96%87%E5%AD%97%E4%BD%93.7z)
+4. [日文字体](https://soya.infini-cloud.net/share/1301ca3af147bf06)
