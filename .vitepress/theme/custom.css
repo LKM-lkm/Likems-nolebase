@@ -33,17 +33,6 @@ img {
   content-visibility: auto;
 }
 
-
-/*
- * 在 MathJax 渲染完成前，先将主内容区域设为透明。
- * 这可以防止用户看到未渲染的 LaTeX 源代码，避免 "闪烁"。
- * 我们使用 opacity 而不是 visibility 或 display，以便应用平滑的过渡效果。
-*/
-.VPDoc {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
 /* 
  * 修复暗黑模式下 MathJax 公式的颜色。
  * 这条规则让 MathJax 容器的文字颜色继承 VitePress 主题的当前颜色。
