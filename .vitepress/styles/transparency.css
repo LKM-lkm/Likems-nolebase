@@ -1,29 +1,92 @@
 /* 透明效果样式 */
 
+/* 确保页面有足够的背景内容来产生模糊效果 */
+html {
+  background: linear-gradient(135deg, 
+    rgba(173, 216, 230, 0.1) 0%, 
+    rgba(221, 160, 221, 0.1) 25%,
+    rgba(255, 182, 193, 0.1) 50%,
+    rgba(144, 238, 144, 0.1) 75%,
+    rgba(255, 218, 185, 0.1) 100%);
+  min-height: 100vh;
+}
+
+/* 强制硬件加速以提高 backdrop-filter 性能 */
+.VPNav,
+.VPSidebar {
+  transform: translateZ(0);
+  will-change: backdrop-filter;
+}
+
 /* 导航栏透明效果 */
 .VPNav {
-  background-color: rgba(255, 255, 255, 0.7) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /* 回退背景色，用于不支持 backdrop-filter 的浏览器 */
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  /* 支持 backdrop-filter 时使用更透明的背景 */
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  /* 确保层叠上下文正确 */
+  position: relative;
+  z-index: 10;
+  /* 添加边框以增强视觉效果 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 检测 backdrop-filter 支持 */
+@supports (backdrop-filter: blur(1px)) {
+  .VPNav {
+    background-color: rgba(255, 255, 255, 0.75) !important;
+  }
 }
 
 .dark .VPNav {
-  background-color: rgba(36, 36, 36, 0.7) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /* 回退背景色 */
+  background-color: rgba(36, 36, 36, 0.95) !important;
+  /* 支持 backdrop-filter 时使用更透明的背景 */
+  background-color: rgba(36, 36, 36, 0.8) !important;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .dark .VPNav {
+    background-color: rgba(36, 36, 36, 0.75) !important;
+  }
 }
 
 /* 侧边栏透明效果 */
 .VPSidebar {
-  background-color: rgba(255, 255, 255, 0.7) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /* 回退背景色 */
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  /* 支持 backdrop-filter 时使用更透明的背景 */
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  position: relative;
+  z-index: 9;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .VPSidebar {
+    background-color: rgba(255, 255, 255, 0.75) !important;
+  }
 }
 
 .dark .VPSidebar {
-  background-color: rgba(36, 36, 36, 0.7) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(36, 36, 36, 0.95) !important;
+  background-color: rgba(36, 36, 36, 0.8) !important;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .dark .VPSidebar {
+    background-color: rgba(36, 36, 36, 0.75) !important;
+  }
 }
 
 /* 内容区域卡片透明效果 */

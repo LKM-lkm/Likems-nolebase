@@ -1,0 +1,164 @@
+/* Backdrop Filter 兼容性修复 */
+
+/* 检测浏览器是否支持 backdrop-filter */
+@supports not (backdrop-filter: blur(1px)) {
+  /* 不支持 backdrop-filter 的浏览器使用更不透明的背景 */
+  .VPNav {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark .VPNav {
+    background-color: rgba(36, 36, 36, 0.95) !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .VPSidebar {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 1px 0 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark .VPSidebar {
+    background-color: rgba(36, 36, 36, 0.95) !important;
+    box-shadow: 1px 0 4px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* 强制重绘以解决 backdrop-filter 闪烁问题 */
+.VPNav {
+  /* 触发硬件加速 */
+  transform: translate3d(0, 0, 0);
+  /* 确保层叠上下文 */
+  isolation: isolate;
+  /* 优化渲染 */
+  contain: layout style paint;
+  /* 确保背景始终可见 */
+  min-height: var(--vp-nav-height);
+  /* 防止背景闪烁 */
+  backface-visibility: hidden;
+  /* 强制合成层 */
+  will-change: transform, backdrop-filter;
+}
+
+.VPSidebar {
+  transform: translate3d(0, 0, 0);
+  isolation: isolate;
+  contain: layout style paint;
+}
+
+/* 针对 Safari 的特殊处理 */
+@supports (-webkit-backdrop-filter: blur(1px)) and (not (backdrop-filter: blur(1px))) {
+  .VPNav,
+  .VPSidebar {
+    -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  }
+}
+
+/* 针对 Firefox 的特殊处理 */
+@-moz-document url-prefix() {
+  .VPNav {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+  }
+  
+  .dark .VPNav {
+    background-color: rgba(36, 36, 36, 0.9) !important;
+  }
+  
+  .VPSidebar {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+  }
+  
+  .dark .VPSidebar {
+    background-color: rgba(36, 36, 36, 0.9) !important;
+  }
+}
+
+/* 防止在页面加载时出现白色闪烁 */
+.VPNav,
+.VPSidebar {
+  transition: background-color 0.2s ease, backdrop-filter 0.2s ease;
+}
+
+/* 确保在滚动时 backdrop-filter 保持稳定 */
+@media (prefers-reduced-motion: no-preference) {
+  .VPNav {
+    will-change: backdrop-filter, background-color;
+  }
+  
+  .VPSidebar {
+    will-change: backdrop-filter, background-color;
+  }
+}
+
+/* 在低性能设备上禁用 backdrop-filter */
+@media (prefers-reduced-motion: reduce) {
+  .VPNav,
+  .VPSidebar {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+  }
+  
+  .dark .VPNav,
+  .dark .VPSidebar {
+    background-color: rgba(36, 36, 36, 0.95) !important;
+  }
+}
+/* 
+针对首页特殊处理 */
+.VPHome .VPNav {
+  /* 在首页上增强模糊效果 */
+  backdrop-filter: blur(15px) saturate(200%) brightness(1.1);
+  -webkit-backdrop-filter: blur(15px) saturate(200%) brightness(1.1);
+}
+
+/* 确保导航栏在滚动时保持稳定 */
+.VPNav.has-sidebar {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+}
+
+/* 修复可能的颜色问题 */
+.VPNav .VPNavBar {
+  background: transparent !important;
+}
+
+/* 确保导航栏内容可见性 */
+.VPNav .title,
+.VPNav .VPNavBarTitle,
+.VPNav .VPNavBarMenu {
+  position: relative;
+  z-index: 1;
+}
+
+/* 针对移动设备优化 */
+@media (max-width: 768px) {
+  .VPNav {
+    backdrop-filter: blur(8px) saturate(150%);
+    -webkit-backdrop-filter: blur(8px) saturate(150%);
+    background-color: rgba(255, 255, 255, 0.9) !important;
+  }
+  
+  .dark .VPNav {
+    background-color: rgba(36, 36, 36, 0.9) !important;
+  }
+}
+
+/* 确保在页面加载完成后应用效果 */
+.VPNav {
+  opacity: 0;
+  animation: navFadeIn 0.3s ease-out forwards;
+}
+
+@keyframes navFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  }
+}

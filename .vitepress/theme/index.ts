@@ -55,6 +55,8 @@ import 'virtual:uno.css'
 
 import '../styles/main.css'
 import '../styles/vars.css'
+import '../styles/transparency.css'
+import '../styles/backdrop-fix.css'
 
 
 import('@nolebase/vitepress-plugin-inline-link-preview/client')

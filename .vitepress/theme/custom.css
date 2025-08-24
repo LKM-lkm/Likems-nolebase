@@ -12,17 +12,7 @@
   backdrop-filter: blur(10px);
 }
 
-/* 导航与侧边栏模糊背景 */
-.VPNav, .VPSidebar {
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.7);
-}
-
-.dark .VPNav,
-.dark .VPSidebar {
-  background: rgba(36, 36, 36, 0.7);
-}
+/* 导航与侧边栏模糊背景 - 已移至 transparency.css 文件中统一管理 */
 
 /* 性能优化 */
 * {
