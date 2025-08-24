@@ -12,7 +12,7 @@
   backdrop-filter: blur(10px);
 }
 
-/* 导航与侧边栏模糊背景 - 已移至 transparency.css 文件中统一管理 */
+/* 导航与侧边栏模糊背景 - 已移至 backdrop-theme.css 文件中统一管理 */
 
 /* 性能优化 */
 * {
@@ -29,4 +29,22 @@ img {
  */
 .dark mjx-container {
   color: inherit;
+}
+
+/* 大纲固定定位的额外确保 */
+.VPDocAside {
+  position: fixed !important;
+  top: calc(var(--vp-nav-height) + 24px) !important;
+  right: 32px !important;
+  width: 224px !important;
+  max-height: calc(100vh - var(--vp-nav-height) - 48px) !important;
+  overflow-y: auto !important;
+  z-index: 8 !important;
+}
+
+/* 确保大纲在所有布局中都保持固定 */
+.has-aside .VPDocAside,
+.layout .VPDocAside,
+.VPDoc .VPDocAside {
+  position: fixed !important;
 }
