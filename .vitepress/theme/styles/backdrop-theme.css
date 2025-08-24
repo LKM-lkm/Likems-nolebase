@@ -4,11 +4,11 @@
 /* 确保页面有足够的背景内容来产生模糊效果 */
 html {
   background: linear-gradient(135deg,
-      rgba(173, 216, 230, 0.15) 0%,
-      rgba(221, 160, 221, 0.15) 25%,
-      rgba(255, 182, 193, 0.15) 50%,
-      rgba(144, 238, 144, 0.15) 75%,
-      rgba(255, 218, 185, 0.15) 100%);
+      rgb(173, 216, 230) 0%,
+      rgb(221, 160, 221) 25%,
+      rgb(255, 182, 193) 50%,
+      rgb(144, 238, 144) 75%,
+      rgb(255, 218, 185) 100%);
   min-height: 100vh;
 }
 
@@ -108,93 +108,7 @@ html {
 
 
 
-/* 额外的大纲固定样式 - 提高优先级 */
-.layout .VPDocAside,
-.VPDoc .VPDocAside,
-.vp-doc .VPDocAside {
-  position: fixed !important;
-  top: calc(var(--vp-nav-height) + 24px) !important;
-  right: 32px !important;
-  bottom: auto !important;
-  left: auto !important;
-  width: 224px !important;
-  height: auto !important;
-  max-height: calc(100vh - var(--vp-nav-height) - 48px) !important;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  z-index: 8 !important;
-  transform: none !important;
-}
 
-/* 确保大纲不会被其他元素遮挡 */
-.VPDocAside,
-.VPDocOutline,
-.vp-doc-outline,
-.doc-outline,
-aside.outline {
-  pointer-events: auto !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* 大纲容器的父元素样式调整 */
-.has-aside .VPDoc .container,
-.has-aside .vp-doc .container {
-  margin-right: 0 !important;
-  padding-right: 0 !important;
-}
-
-/* 防止大纲内容溢出 */
-.VPDocAside *,
-.VPDocOutline *,
-.vp-doc-outline *,
-.doc-outline *,
-aside.outline * {
-  max-width: 100%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-/* 大纲链接的精确样式控制 */
-.VPDocAside a,
-.VPDocOutline a,
-.vp-doc-outline a,
-.doc-outline a,
-aside.outline a {
-  display: block !important;
-  position: relative !important;
-  padding: 4px 8px !important;
-  margin: 2px 0 !important;
-  font-size: 13px !important;
-  line-height: 1.4 !important;
-  color: var(--vp-c-text-2) !important;
-  text-decoration: none !important;
-  border-radius: 4px !important;
-  transition: all 0.2s ease !important;
-  border-left: 2px solid transparent !important;
-}
-
-.VPDocAside a:hover,
-.VPDocOutline a:hover,
-.vp-doc-outline a:hover,
-.doc-outline a:hover,
-aside.outline a:hover {
-  color: var(--vp-c-brand-1) !important;
-  background-color: rgba(var(--vp-c-brand-rgb), 0.05) !important;
-  border-left-color: var(--vp-c-brand-1) !important;
-  transform: translateX(2px) !important;
-}
-
-.VPDocAside a.active,
-.VPDocOutline a.active,
-.vp-doc-outline a.active,
-.doc-outline a.active,
-aside.outline a.active {
-  color: var(--vp-c-brand-1) !important;
-  background-color: rgba(var(--vp-c-brand-rgb), 0.1) !important;
-  border-left-color: var(--vp-c-brand-1) !important;
-  font-weight: 500 !important;
-}
 
 @supports (backdrop-filter: blur(1px)) {
   .VPSidebar {
@@ -434,11 +348,11 @@ aside.outline a.active {
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg,
-      rgba(173, 216, 230, 0.3) 0%,
-      rgba(221, 160, 221, 0.3) 25%,
-      rgba(255, 182, 193, 0.3) 50%,
-      rgba(144, 238, 144, 0.3) 75%,
-      rgba(255, 218, 185, 0.3) 100%);
+      rgb(173, 216, 230) 0%,
+      rgb(221, 160, 221) 25%,
+      rgb(255, 182, 193) 50%,
+      rgb(144, 238, 144) 75%,
+      rgb(255, 218, 185) 100%);
   z-index: -1;
   animation: gradientShift 15s ease-in-out infinite;
 }
@@ -625,37 +539,37 @@ aside.outline a.active {
   0%,
   100% {
     background: linear-gradient(135deg,
-        rgba(173, 216, 230, 0.3) 0%,
-        rgba(221, 160, 221, 0.3) 25%,
-        rgba(255, 182, 193, 0.3) 50%,
-        rgba(144, 238, 144, 0.3) 75%,
-        rgba(255, 218, 185, 0.3) 100%);
+        rgb(173, 216, 230) 0%,
+        rgb(221, 160, 221) 25%,
+        rgb(255, 182, 193) 50%,
+        rgb(144, 238, 144) 75%,
+        rgb(255, 218, 185) 100%);
   }
 
   25% {
     background: linear-gradient(135deg,
-        rgba(255, 218, 185, 0.3) 0%,
-        rgba(173, 216, 230, 0.3) 25%,
-        rgba(221, 160, 221, 0.3) 50%,
-        rgba(255, 182, 193, 0.3) 75%,
-        rgba(144, 238, 144, 0.3) 100%);
+        rgb(255, 218, 185) 0%,
+        rgb(173, 216, 230) 25%,
+        rgb(221, 160, 221) 50%,
+        rgb(255, 182, 193) 75%,
+        rgb(144, 238, 144) 100%);
   }
 
   50% {
     background: linear-gradient(135deg,
-        rgba(144, 238, 144, 0.3) 0%,
-        rgba(255, 218, 185, 0.3) 25%,
-        rgba(173, 216, 230, 0.3) 50%,
-        rgba(221, 160, 221, 0.3) 75%,
-        rgba(255, 182, 193, 0.3) 100%);
+        rgb(144, 238, 144) 0%,
+        rgb(255, 218, 185) 25%,
+        rgb(173, 216, 230) 50%,
+        rgb(221, 160, 221) 75%,
+        rgb(255, 182, 193) 100%);
   }
 
   75% {
     background: linear-gradient(135deg,
-        rgba(255, 182, 193, 0.3) 0%,
-        rgba(144, 238, 144, 0.3) 25%,
-        rgba(255, 218, 185, 0.3) 50%,
-        rgba(173, 216, 230, 0.3) 75%,
-        rgba(221, 160, 221, 0.3) 100%);
+        rgb(255, 182, 193) 0%,
+        rgb(144, 238, 144) 25%,
+        rgb(255, 218, 185) 50%,
+        rgb(173, 216, 230) 75%,
+        rgb(221, 160, 221) 100%);
   }
 }
