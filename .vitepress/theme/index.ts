@@ -1,9 +1,8 @@
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-import './styles/custom.css'
+import './custom.css'
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
-import { useData, useRoute } from 'vitepress';
-import { toRefs } from "vue";
+import { useData, useRoute } from 'vitepress'
 import { h } from 'vue'
 
 import {
@@ -55,8 +54,8 @@ import 'virtual:uno.css'
 
 import '../styles/main.css'
 import '../styles/vars.css'
-import '../styles/transparency.css'
-import '../styles/backdrop-fix.css'
+// 使用统一的 Backdrop Filter 主题样式
+import './styles/backdrop-theme.css'
 
 
 import('@nolebase/vitepress-plugin-inline-link-preview/client')
@@ -153,10 +152,8 @@ const ExtendedTheme: Theme = {
   },
   setup() {
     // Get frontmatter and route
-    const { frontmatter } = toRefs(useData());
-    const route = useRoute();
-    
-
+    const data = useData()
+    const route = useRoute()
     
     // Obtain configuration from: https://giscus.app/
     giscusTalk({
@@ -181,7 +178,7 @@ const ExtendedTheme: Theme = {
       darkTheme: 'transparent_dark', // default: `transparent_dark`
       // ...
     }, {
-      frontmatter, route
+      frontmatter: data.frontmatter, route
     },
       // Whether to activate the comment area on all pages.
       // The default is true, which means enabled, this parameter can be ignored;
