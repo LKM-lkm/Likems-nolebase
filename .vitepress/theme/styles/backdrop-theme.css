@@ -371,8 +371,6 @@ body {
 /* ===== 主页背景效果 ===== */
 .VPHome {
   position: relative;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
   background: linear-gradient(135deg,
       rgba(55, 76, 119, 0.12) 0%,
       rgba(232, 167, 178, 0.12) 50%,
@@ -393,37 +391,6 @@ body {
       rgba(55, 76, 119, 0.05) 100%);
   z-index: -1;
   animation: subtleGradientShift 20s ease-in-out infinite;
-}
-
-/* 确保主页内容容器正确居中 */
-.VPHome .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-/* 主页hero区域全屏宽度 */
-.VPHome .VPHero {
-  width: 100%;
-  padding: 0;
-}
-
-.VPHome .VPHero .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-}
-
-/* 主页features区域全屏宽度 */
-.VPHome .VPFeatures {
-  width: 100%;
-  padding: 0;
-}
-
-.VPHome .VPFeatures .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
 }
 
 /* ===== 交互效果 ===== */
