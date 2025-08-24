@@ -134,12 +134,9 @@ body {
 }
 
 /* ===== 内容区域样式 ===== */
-/* 笔记页面全屏宽度和白色背景 */
+/* 笔记页面白色背景 */
 .VPDoc {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
   background-color: #ffffff !important;
-  min-height: 100vh;
 }
 
 .dark .VPDoc {
@@ -147,58 +144,32 @@ body {
 }
 
 .VPDoc .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
   background-color: #ffffff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 .dark .VPDoc .container {
   background-color: var(--vp-c-bg-soft);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-/* 固定页面大纲位置 */
+/* 固定页面大纲位置 - 保持在右侧可见 */
 .VPDocAside {
-  position: fixed !important;
-  top: calc(var(--vp-nav-height) + 2rem) !important;
-  right: 2rem !important;
-  width: 240px !important;
-  max-height: calc(100vh - var(--vp-nav-height) - 4rem) !important;
-  overflow-y: auto !important;
-  z-index: 10 !important;
+  position: sticky !important;
+  top: calc(var(--vp-nav-height) + 1rem) !important;
   background-color: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
-  border-radius: 12px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
   padding: 1rem !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+  margin-top: 1rem !important;
 }
 
 .dark .VPDocAside {
   background-color: rgba(36, 36, 36, 0.95) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* 调整主内容区域右边距，为固定的大纲留出空间 */
-.VPDoc .content {
-  margin-right: 280px !important;
-}
-
-/* 移动设备上隐藏固定大纲 */
-@media (max-width: 1280px) {
-  .VPDocAside {
-    display: none !important;
-  }
-  
-  .VPDoc .content {
-    margin-right: 0 !important;
-  }
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2) !important;
 }
 
 /* ===== 自定义容器样式 ===== */
@@ -400,6 +371,8 @@ body {
 /* ===== 主页背景效果 ===== */
 .VPHome {
   position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   background: linear-gradient(135deg,
       rgba(55, 76, 119, 0.12) 0%,
       rgba(232, 167, 178, 0.12) 50%,
@@ -420,6 +393,37 @@ body {
       rgba(55, 76, 119, 0.05) 100%);
   z-index: -1;
   animation: subtleGradientShift 20s ease-in-out infinite;
+}
+
+/* 确保主页内容容器正确居中 */
+.VPHome .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* 主页hero区域全屏宽度 */
+.VPHome .VPHero {
+  width: 100%;
+  padding: 0;
+}
+
+.VPHome .VPHero .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* 主页features区域全屏宽度 */
+.VPHome .VPFeatures {
+  width: 100%;
+  padding: 0;
+}
+
+.VPHome .VPFeatures .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
 }
 
 /* ===== 交互效果 ===== */

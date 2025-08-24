@@ -19,9 +19,8 @@ import { siteName } from '../../../metadata'
 
 <style scoped>
 .home-page-container {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  padding: 3rem 0;
+  width: 100%;
+  padding: 3rem 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
