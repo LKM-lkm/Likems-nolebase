@@ -85,6 +85,29 @@ body {
 
 .VPNav .VPNavBar {
   background: transparent !important;
+  width: 100vw !important;
+  margin-left: calc(-50vw + 50%) !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+/* 导航栏左侧元素对齐到屏幕左侧 */
+.VPNav .VPNavBarTitle {
+  margin-left: 0 !important;
+}
+
+.VPNav .content {
+  max-width: none !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* 导航栏右侧元素对齐到屏幕右侧 */
+.VPNav .VPNavBarExtra {
+  margin-right: 0 !important;
 }
 
 /* ===== 侧边栏样式 ===== */
@@ -97,7 +120,10 @@ body {
   -webkit-backdrop-filter: blur(12px) saturate(180%);
 
   /* 层叠和定位 */
-  position: relative;
+  position: fixed !important;
+  left: 0 !important;
+  top: var(--vp-nav-height) !important;
+  height: calc(100vh - var(--vp-nav-height)) !important;
   z-index: 9;
 
   /* 硬件加速优化 */
@@ -152,24 +178,58 @@ body {
   background-color: var(--vp-c-bg-soft);
 }
 
-/* 固定页面大纲位置 - 保持在右侧可见 */
+/* 固定页面大纲位置 - 对齐到屏幕右侧 */
 .VPDocAside {
-  position: sticky !important;
-  top: calc(var(--vp-nav-height) + 1rem) !important;
+  position: fixed !important;
+  right: 0 !important;
+  top: var(--vp-nav-height) !important;
+  height: calc(100vh - var(--vp-nav-height)) !important;
+  width: 240px !important;
+  overflow-y: auto !important;
+  z-index: 8 !important;
   background-color: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
-  border-radius: 8px !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.08) !important;
   padding: 1rem !important;
-  margin-top: 1rem !important;
 }
 
 .dark .VPDocAside {
   background-color: rgba(36, 36, 36, 0.95) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 调整主内容区域的边距，为固定的侧边栏和大纲留出空间 */
+.VPDoc .container {
+  margin-left: var(--vp-sidebar-width) !important;
+  margin-right: 240px !important;
+  max-width: none !important;
+  padding: 2rem !important;
+}
+
+/* 移动设备上隐藏固定的侧边栏和大纲 */
+@media (max-width: 1280px) {
+  .VPSidebar {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    height: auto !important;
+  }
+  
+  .VPDocAside {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    height: auto !important;
+    width: auto !important;
+    border-left: none !important;
+  }
+  
+  .VPDoc .container {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 1200px !important;
+  }
 }
 
 /* ===== 自定义容器样式 ===== */
@@ -376,6 +436,9 @@ body {
       rgba(232, 167, 178, 0.12) 50%,
       rgba(55, 76, 119, 0.08) 100%) !important;
   animation: subtleGradientShift 20s ease-in-out infinite;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .VPHome::before {
@@ -391,6 +454,39 @@ body {
       rgba(55, 76, 119, 0.05) 100%);
   z-index: -1;
   animation: subtleGradientShift 20s ease-in-out infinite;
+}
+
+/* 主页profile居中对齐 */
+.VPHome .vp-doc {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 !important;
+  padding: 2rem 1rem !important;
+}
+
+.VPHome .profile {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  max-width: 500px !important;
+  margin: 0 auto !important;
+}
+
+/* 移除profile与footer之间的白色间隙 */
+.VPHome .VPFooter {
+  margin-top: 0 !important;
+  background: transparent !important;
+}
+
+/* 确保主页内容区域没有多余的边距 */
+.VPHome .container {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
 }
 
 /* ===== 交互效果 ===== */
