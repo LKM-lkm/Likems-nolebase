@@ -4,21 +4,17 @@
 /* 确保页面有足够的背景内容来产生模糊效果 */
 html {
   background: linear-gradient(135deg,
-      rgba(173, 216, 230, 0.3) 0%,
-      rgba(221, 160, 221, 0.3) 25%,
-      rgba(255, 182, 193, 0.3) 50%,
-      rgba(144, 238, 144, 0.3) 75%,
-      rgba(255, 218, 185, 0.3) 100%);
+      rgba(55, 76, 119, 0.08) 0%,
+      rgba(232, 167, 178, 0.08) 50%,
+      rgba(55, 76, 119, 0.05) 100%);
   min-height: 100vh;
 }
 
 body {
   background: linear-gradient(135deg,
-      rgba(173, 216, 230, 0.2) 0%,
-      rgba(221, 160, 221, 0.2) 25%,
-      rgba(255, 182, 193, 0.2) 50%,
-      rgba(144, 238, 144, 0.2) 75%,
-      rgba(255, 218, 185, 0.2) 100%);
+      rgba(55, 76, 119, 0.05) 0%,
+      rgba(232, 167, 178, 0.05) 50%,
+      rgba(55, 76, 119, 0.03) 100%);
   min-height: 100vh;
 }
 
@@ -336,12 +332,10 @@ body {
 .VPHome {
   position: relative;
   background: linear-gradient(135deg,
-      rgba(173, 216, 230, 0.4) 0%,
-      rgba(221, 160, 221, 0.4) 25%,
-      rgba(255, 182, 193, 0.4) 50%,
-      rgba(144, 238, 144, 0.4) 75%,
-      rgba(255, 218, 185, 0.4) 100%) !important;
-  animation: gradientShift 15s ease-in-out infinite;
+      rgba(55, 76, 119, 0.12) 0%,
+      rgba(232, 167, 178, 0.12) 50%,
+      rgba(55, 76, 119, 0.08) 100%) !important;
+  animation: subtleGradientShift 20s ease-in-out infinite;
 }
 
 .VPHome::before {
@@ -352,42 +346,11 @@ body {
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg,
-      rgba(173, 216, 230, 0.3) 0%,
-      rgba(221, 160, 221, 0.3) 25%,
-      rgba(255, 182, 193, 0.3) 50%,
-      rgba(144, 238, 144, 0.3) 75%,
-      rgba(255, 218, 185, 0.3) 100%);
+      rgba(55, 76, 119, 0.08) 0%,
+      rgba(232, 167, 178, 0.08) 50%,
+      rgba(55, 76, 119, 0.05) 100%);
   z-index: -1;
-  animation: gradientShift 15s ease-in-out infinite;
-}
-
-/* ===== 主页背景效果 ===== */
-.VPHome {
-  position: relative;
-  background: linear-gradient(135deg,
-      rgba(173, 216, 230, 0.4) 0%,
-      rgba(221, 160, 221, 0.4) 25%,
-      rgba(255, 182, 193, 0.4) 50%,
-      rgba(144, 238, 144, 0.4) 75%,
-      rgba(255, 218, 185, 0.4) 100%) !important;
-  animation: gradientShift 15s ease-in-out infinite;
-}
-
-.VPHome::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg,
-      rgba(173, 216, 230, 0.3) 0%,
-      rgba(221, 160, 221, 0.3) 25%,
-      rgba(255, 182, 193, 0.3) 50%,
-      rgba(144, 238, 144, 0.3) 75%,
-      rgba(255, 218, 185, 0.3) 100%);
-  z-index: -1;
-  animation: gradientShift 15s ease-in-out infinite;
+  animation: subtleGradientShift 20s ease-in-out infinite;
 }
 
 /* ===== 交互效果 ===== */
@@ -567,82 +530,18 @@ body {
   }
 }
 
-@keyframes gradientShift {
-
-  0%,
-  100% {
+@keyframes subtleGradientShift {
+  0%, 100% {
     background: linear-gradient(135deg,
-        rgba(173, 216, 230, 0.3) 0%,
-        rgba(221, 160, 221, 0.3) 25%,
-        rgba(255, 182, 193, 0.3) 50%,
-        rgba(144, 238, 144, 0.3) 75%,
-        rgba(255, 218, 185, 0.3) 100%);
-  }
-
-  25% {
-    background: linear-gradient(135deg,
-        rgba(255, 218, 185, 0.3) 0%,
-        rgba(173, 216, 230, 0.3) 25%,
-        rgba(221, 160, 221, 0.3) 50%,
-        rgba(255, 182, 193, 0.3) 75%,
-        rgba(144, 238, 144, 0.3) 100%);
+        rgba(55, 76, 119, 0.08) 0%,
+        rgba(232, 167, 178, 0.08) 50%,
+        rgba(55, 76, 119, 0.05) 100%);
   }
 
   50% {
     background: linear-gradient(135deg,
-        rgba(144, 238, 144, 0.3) 0%,
-        rgba(255, 218, 185, 0.3) 25%,
-        rgba(173, 216, 230, 0.3) 50%,
-        rgba(221, 160, 221, 0.3) 75%,
-        rgba(255, 182, 193, 0.3) 100%);
-  }
-
-  75% {
-    background: linear-gradient(135deg,
-        rgba(255, 182, 193, 0.3) 0%,
-        rgba(144, 238, 144, 0.3) 25%,
-        rgba(255, 218, 185, 0.3) 50%,
-        rgba(173, 216, 230, 0.3) 75%,
-        rgba(221, 160, 221, 0.3) 100%);
-  }
-}
-
-@keyframes gradientShift {
-
-  0%,
-  100% {
-    background: linear-gradient(135deg,
-        rgba(173, 216, 230, 0.3) 0%,
-        rgba(221, 160, 221, 0.3) 25%,
-        rgba(255, 182, 193, 0.3) 50%,
-        rgba(144, 238, 144, 0.3) 75%,
-        rgba(255, 218, 185, 0.3) 100%);
-  }
-
-  25% {
-    background: linear-gradient(135deg,
-        rgba(255, 218, 185, 0.3) 0%,
-        rgba(173, 216, 230, 0.3) 25%,
-        rgba(221, 160, 221, 0.3) 50%,
-        rgba(255, 182, 193, 0.3) 75%,
-        rgba(144, 238, 144, 0.3) 100%);
-  }
-
-  50% {
-    background: linear-gradient(135deg,
-        rgba(144, 238, 144, 0.3) 0%,
-        rgba(255, 218, 185, 0.3) 25%,
-        rgba(173, 216, 230, 0.3) 50%,
-        rgba(221, 160, 221, 0.3) 75%,
-        rgba(255, 182, 193, 0.3) 100%);
-  }
-
-  75% {
-    background: linear-gradient(135deg,
-        rgba(255, 182, 193, 0.3) 0%,
-        rgba(144, 238, 144, 0.3) 25%,
-        rgba(255, 218, 185, 0.3) 50%,
-        rgba(173, 216, 230, 0.3) 75%,
-        rgba(221, 160, 221, 0.3) 100%);
+        rgba(232, 167, 178, 0.10) 0%,
+        rgba(55, 76, 119, 0.10) 50%,
+        rgba(232, 167, 178, 0.06) 100%);
   }
 }
