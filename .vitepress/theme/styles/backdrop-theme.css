@@ -1,7 +1,6 @@
 /* VitePress Backdrop Filter Theme - 统一的透明模糊主题 */
 
 /* ===== 基础设置 ===== */
-/* 确保页面有足够的背景内容来产生模糊效果 */
 html {
   background: linear-gradient(135deg,
       rgba(55, 76, 119, 0.08) 0%,
@@ -20,44 +19,19 @@ body {
 
 /* ===== 导航栏样式 ===== */
 .VPNav {
-  /* 基础背景色 - 回退方案 */
   background-color: rgba(255, 255, 255, 0.95) !important;
-
-  /* 模糊效果 */
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
-
-  /* 层叠和定位 */
-  position: relative;
-  z-index: 10;
-
-  /* 硬件加速优化 */
-  transform: translate3d(0, 0, 0);
-  will-change: backdrop-filter, background-color;
-  isolation: isolate;
-  contain: layout style paint;
-  backface-visibility: hidden;
-
-  /* 视觉增强 */
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  min-height: var(--vp-nav-height);
-
-  /* 平滑过渡 */
   transition: background-color 0.2s ease, backdrop-filter 0.2s ease;
-
-  /* 入场动画 */
-  opacity: 0;
-  animation: navFadeIn 0.3s ease-out forwards;
 }
 
-/* 支持 backdrop-filter 的浏览器使用更透明的背景 */
 @supports (backdrop-filter: blur(1px)) {
   .VPNav {
     background-color: rgba(255, 255, 255, 0.75) !important;
   }
 }
 
-/* 暗色模式 */
 .dark .VPNav {
   background-color: rgba(36, 36, 36, 0.95) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -69,78 +43,14 @@ body {
   }
 }
 
-/* 首页特殊效果 */
-.VPHome .VPNav {
-  backdrop-filter: blur(15px) saturate(200%) brightness(1.1);
-  -webkit-backdrop-filter: blur(15px) saturate(200%) brightness(1.1);
-}
-
-/* 导航栏内容确保可见 */
-.VPNav .title,
-.VPNav .VPNavBarTitle,
-.VPNav .VPNavBarMenu {
-  position: relative;
-  z-index: 1;
-}
-
-.VPNav .VPNavBar {
-  background: transparent !important;
-  width: 100vw !important;
-  margin-left: calc(-50vw + 50%) !important;
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
-}
-
-/* 导航栏左侧元素对齐到屏幕左侧 */
-.VPNav .VPNavBarTitle {
-  margin-left: 0 !important;
-}
-
-.VPNav .content {
-  max-width: none !important;
-  padding: 0 !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  width: 100% !important;
-}
-
-/* 导航栏右侧元素对齐到屏幕右侧 */
-.VPNav .VPNavBarExtra {
-  margin-right: 0 !important;
-}
-
 /* ===== 侧边栏样式 ===== */
 .VPSidebar {
-  /* 基础背景色 */
   background-color: rgba(255, 255, 255, 0.95) !important;
-
-  /* 模糊效果 */
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
-
-  /* 层叠和定位 */
-  position: fixed !important;
-  left: 0 !important;
-  top: var(--vp-nav-height) !important;
-  height: calc(100vh - var(--vp-nav-height)) !important;
-  z-index: 9;
-
-  /* 硬件加速优化 */
-  transform: translate3d(0, 0, 0);
-  isolation: isolate;
-  contain: layout style paint;
-
-  /* 视觉增强 */
   border-right: 1px solid rgba(255, 255, 255, 0.2);
-
-  /* 平滑过渡 */
   transition: background-color 0.2s ease, backdrop-filter 0.2s ease;
 }
-
-
-
-
 
 @supports (backdrop-filter: blur(1px)) {
   .VPSidebar {
@@ -159,8 +69,7 @@ body {
   }
 }
 
-/* ===== 内容区域样式 ===== */
-/* 笔记页面白色背景 */
+/* ===== 笔记页面白色背景 ===== */
 .VPDoc {
   background-color: #ffffff !important;
 }
@@ -171,501 +80,22 @@ body {
 
 .VPDoc .container {
   background-color: #ffffff;
-  transition: all 0.3s ease;
 }
 
 .dark .VPDoc .container {
   background-color: var(--vp-c-bg-soft);
 }
 
-/* 固定页面大纲位置 - 对齐到屏幕右侧 */
-.VPDocAside {
-  position: fixed !important;
-  right: 0 !important;
-  top: var(--vp-nav-height) !important;
-  height: calc(100vh - var(--vp-nav-height)) !important;
-  width: 240px !important;
-  overflow-y: auto !important;
-  z-index: 8 !important;
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-left: 1px solid rgba(0, 0, 0, 0.08) !important;
-  padding: 1rem !important;
-}
-
-.dark .VPDocAside {
-  background-color: rgba(36, 36, 36, 0.95) !important;
-  border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-/* 调整主内容区域的边距，为固定的侧边栏和大纲留出空间 */
-.VPDoc .container {
-  margin-left: var(--vp-sidebar-width) !important;
-  margin-right: 240px !important;
-  max-width: none !important;
-  padding: 2rem !important;
-}
-
-/* 移动设备上隐藏固定的侧边栏和大纲 */
-@media (max-width: 1280px) {
-  .VPSidebar {
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    height: auto !important;
-  }
-  
-  .VPDocAside {
-    position: relative !important;
-    right: auto !important;
-    top: auto !important;
-    height: auto !important;
-    width: auto !important;
-    border-left: none !important;
-  }
-  
-  .VPDoc .container {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    max-width: 1200px !important;
-  }
-}
-
-/* ===== 自定义容器样式 ===== */
-.custom-block {
-  background-color: #f8f9fa !important;
-  border-radius: 8px;
-  border-left-width: 4px;
-  border: 1px solid #e9ecef;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
-  margin: 1rem 0;
-}
-
-.custom-block:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
-}
-
-.dark .custom-block {
-  background-color: var(--vp-c-bg-soft) !important;
-  border: 1px solid var(--vp-c-divider);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.custom-block.tip {
-  border-left-color: var(--vp-c-brand-1);
-  background-color: rgba(var(--vp-c-brand-1), 0.05) !important;
-}
-
-.custom-block.warning {
-  border-left-color: #e7c000;
-  background-color: rgba(231, 192, 0, 0.05) !important;
-}
-
-.custom-block.danger {
-  border-left-color: #cc0000;
-  background-color: rgba(204, 0, 0, 0.05) !important;
-}
-
-.custom-block.info {
-  border-left-color: #3b8af2;
-  background-color: rgba(59, 138, 242, 0.05) !important;
-}
-
-/* ===== 代码块样式 ===== */
-.vp-doc div[class*='language-'] {
-  background-color: #f8f9fa !important;
-  border: 1px solid #e9ecef !important;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  margin: 1rem 0;
-}
-
-.vp-doc div[class*='language-']:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  transform: translateY(-1px);
-}
-
-.dark .vp-doc div[class*='language-'] {
-  background-color: var(--vp-c-bg-alt) !important;
-  border: 1px solid var(--vp-c-divider) !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* 行内代码 */
-.vp-doc :not(pre)>code {
-  background-color: #f1f3f4 !important;
-  color: #d73a49 !important;
-  border-radius: 4px;
-  padding: 0.2em 0.4em;
-  font-size: 0.9em;
-  font-weight: 500;
-  border: 1px solid #e1e4e8;
-  transition: all 0.2s ease;
-}
-
-.vp-doc :not(pre)>code:hover {
-  background-color: #e8eaed !important;
-}
-
-.dark .vp-doc :not(pre)>code {
-  background-color: var(--vp-c-bg-mute) !important;
-  color: var(--vp-c-text-code) !important;
-  border: 1px solid var(--vp-c-divider);
-}
-
-.dark .vp-doc :not(pre)>code:hover {
-  background-color: var(--vp-c-bg-alt) !important;
-}
-
-/* ===== 按钮样式 ===== */
-.VPButton {
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
-  border-radius: 8px;
-}
-
-.VPButton.medium {
-  padding: 0 20px;
-  height: 44px;
-}
-
-.VPButton.brand {
-  background-color: rgba(73, 161, 212, 0.9) !important;
-  box-shadow: 0 4px 12px rgba(73, 161, 212, 0.3);
-}
-
-.VPButton.brand:hover {
-  background-color: rgba(73, 161, 212, 1) !important;
-  box-shadow: 0 6px 16px rgba(73, 161, 212, 0.4);
-  transform: translateY(-2px);
-}
-
-.VPButton.alt {
-  background-color: rgba(240, 240, 240, 0.8) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.VPButton.alt:hover {
-  background-color: rgba(240, 240, 240, 0.9) !important;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
-}
-
-.dark .VPButton.alt {
-  background-color: rgba(50, 50, 50, 0.8) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.dark .VPButton.alt:hover {
-  background-color: rgba(60, 60, 60, 0.9) !important;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* ===== 表格样式 ===== */
-.vp-doc table {
-  display: table;
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin: 16px 0;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid #e9ecef;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
-}
-
-.vp-doc table:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
-}
-
-.vp-doc tr:nth-child(2n) {
-  background-color: #f8f9fa !important;
-}
-
-.vp-doc tr:nth-child(2n+1) {
-  background-color: #ffffff !important;
-}
-
-.vp-doc th {
-  background-color: #e9ecef !important;
-  font-weight: 600;
-  text-align: left;
-  color: var(--vp-c-text-1);
-}
-
-.dark .vp-doc table {
-  border: 1px solid var(--vp-c-divider);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.dark .vp-doc tr:nth-child(2n) {
-  background-color: var(--vp-c-bg-mute) !important;
-}
-
-.dark .vp-doc tr:nth-child(2n+1) {
-  background-color: var(--vp-c-bg-soft) !important;
-}
-
-.dark .vp-doc th {
-  background-color: var(--vp-c-bg-alt) !important;
-}
-
-/* ===== 页脚样式 ===== */
-.VPFooter {
-  background-color: rgba(245, 245, 245, 0.7) !important;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-
-.dark .VPFooter {
-  background-color: rgba(36, 36, 36, 0.7) !important;
-}
-
 /* ===== 主页背景效果 ===== */
 .VPHome {
-  position: relative;
   background: linear-gradient(135deg,
       rgba(55, 76, 119, 0.12) 0%,
       rgba(232, 167, 178, 0.12) 50%,
       rgba(55, 76, 119, 0.08) 100%) !important;
   animation: subtleGradientShift 20s ease-in-out infinite;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.VPHome::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg,
-      rgba(55, 76, 119, 0.08) 0%,
-      rgba(232, 167, 178, 0.08) 50%,
-      rgba(55, 76, 119, 0.05) 100%);
-  z-index: -1;
-  animation: subtleGradientShift 20s ease-in-out infinite;
-}
-
-/* 主页profile居中对齐 */
-.VPHome .vp-doc {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex: 1 !important;
-  padding: 2rem 1rem !important;
-}
-
-.VPHome .profile {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  max-width: 500px !important;
-  margin: 0 auto !important;
-}
-
-/* 移除profile与footer之间的白色间隙 */
-.VPHome .VPFooter {
-  margin-top: 0 !important;
-  background: transparent !important;
-}
-
-/* 确保主页内容区域没有多余的边距 */
-.VPHome .container {
-  padding: 0 !important;
-  margin: 0 !important;
-  max-width: none !important;
-}
-
-/* ===== 交互效果 ===== */
-/* 链接悬停效果 */
-.vp-doc a:not(.header-anchor):not(.VPButton) {
-  position: relative;
-  text-decoration: none;
-  font-weight: 500;
-  background-image: linear-gradient(to right, var(--vp-c-brand-1), var(--vp-c-brand-1));
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  background-size: 0% 2px;
-  transition: background-size 0.3s ease;
-}
-
-.vp-doc a:not(.header-anchor):not(.VPButton):hover {
-  background-size: 100% 2px;
-}
-
-/* 标题动画效果 */
-.vp-doc h2,
-.vp-doc h3 {
-  position: relative;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.vp-doc h2:hover,
-.vp-doc h3:hover {
-  transform: translateX(4px);
-  color: var(--vp-c-brand-1);
-}
-
-/* 图片悬停效果 */
-.vp-doc img:not([class]) {
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.vp-doc img:not([class]):hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
-
-.dark .vp-doc img:not([class]) {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.dark .vp-doc img:not([class]):hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-/* ===== 滚动条美化 ===== */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(144, 147, 153, 0.3);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(144, 147, 153, 0.5);
-}
-
-.dark ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: rgba(144, 147, 153, 0.3);
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: rgba(144, 147, 153, 0.5);
-}
-
-/* ===== 兼容性处理 ===== */
-/* 不支持 backdrop-filter 的浏览器 */
-@supports not (backdrop-filter: blur(1px)) {
-  .VPNav {
-    background-color: rgba(255, 255, 255, 0.95) !important;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .dark .VPNav {
-    background-color: rgba(36, 36, 36, 0.95) !important;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  }
-
-  .VPSidebar {
-    background-color: rgba(255, 255, 255, 0.95) !important;
-    box-shadow: 1px 0 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .dark .VPSidebar {
-    background-color: rgba(36, 36, 36, 0.95) !important;
-    box-shadow: 1px 0 4px rgba(0, 0, 0, 0.2);
-  }
-}
-
-/* Safari 特殊处理 */
-@supports (-webkit-backdrop-filter: blur(1px)) and (not (backdrop-filter: blur(1px))) {
-
-  .VPNav,
-  .VPSidebar {
-    -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
-  }
-}
-
-/* Firefox 特殊处理 */
-@-moz-document url-prefix() {
-  .VPNav {
-    background-color: rgba(255, 255, 255, 0.9) !important;
-  }
-
-  .dark .VPNav {
-    background-color: rgba(36, 36, 36, 0.9) !important;
-  }
-
-  .VPSidebar {
-    background-color: rgba(255, 255, 255, 0.9) !important;
-  }
-
-  .dark .VPSidebar {
-    background-color: rgba(36, 36, 36, 0.9) !important;
-  }
-}
-
-/* 移动设备优化 */
-@media (max-width: 768px) {
-  .VPNav {
-    backdrop-filter: blur(8px) saturate(150%);
-    -webkit-backdrop-filter: blur(8px) saturate(150%);
-    background-color: rgba(255, 255, 255, 0.9) !important;
-  }
-
-  .dark .VPNav {
-    background-color: rgba(36, 36, 36, 0.9) !important;
-  }
-}
-
-/* 低性能设备优化 */
-@media (prefers-reduced-motion: reduce) {
-
-  .VPNav,
-  .VPSidebar {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    background-color: rgba(255, 255, 255, 0.95) !important;
-  }
-
-  .dark .VPNav,
-  .dark .VPSidebar {
-    background-color: rgba(36, 36, 36, 0.95) !important;
-  }
 }
 
 /* ===== 动画定义 ===== */
-@keyframes navFadeIn {
-  from {
-    opacity: 0;
-    backdrop-filter: blur(0px);
-    -webkit-backdrop-filter: blur(0px);
-  }
-
-  to {
-    opacity: 1;
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
-  }
-}
-
 @keyframes subtleGradientShift {
   0%, 100% {
     background: linear-gradient(135deg,
