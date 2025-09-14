@@ -1,7 +1,9 @@
 @import 'kbd.css';
 
-html, body {
-  -webkit-tap-highlight-color: transparent; /* 避免触屏下的点击高亮颜色 */
+html,
+body {
+  -webkit-tap-highlight-color: transparent;
+  /* 避免触屏下的点击高亮颜色 */
 }
 
 /* 参考 Vitest */
@@ -72,77 +74,110 @@ html, body {
   max-width: unset;
 }
 
-/* 标题所需要的字体 */
+/* Playfair Display Bold 字体 - 英文标题 */
 @font-face {
-  font-family: tengwarannatar;
-  src: url(/PlayfairDisplay-Regular.woff2) format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: block;
-}
-
-/* 标题所需要的字体 */
-@font-face {
-  font-family: tengwarannatar-bold;
+  font-family: 'PlayfairDisplay-Bold';
   src: url(/PlayfairDisplay-Bold.woff2) format('woff2');
-  font-weight: 400;
+  font-weight: bold;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
-/* 首页标题样式 */
-.VPHomeHero > .container > .main > h1 {
-  font-size: 5rem;
-  font-family: 'tengwarannatar-bold';
+/* FZXiaoBiaoSong 字体 - 中文标题 */
+@font-face {
+  font-family: 'FZDaHei';
+  src: url(/FZDaHei.woff2) format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 首页主标题样式 - 只针对 h1 标题 */
+.VPHomeHero>.container>.main>h1,
+.VPHomeHero .container .main h1,
+.VPHero h1.name,
+.VPHero .name {
+  font-size: 80px !important;
+  font-weight: bold !important;
+  line-height: 1.2 !important;
+  font-family: 'PlayfairDisplay-Bold', 'any', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+  transform: none !important;
+}
+
+.VPHero.has-image span.name:nth-child(1) {
+  line-height: 96px !important;
+  /* 80px * 1.2 = 96px */
 }
 
 /* 首页子标题样式 */
-.VPHomeHero > .container > .main > .text {
+.VPHomeHero>.container>.main>.text {
   padding-top: 45px;
   font-size: 4rem;
 }
 
 /* 首页介绍样式 */
-.VPHomeHero > .container > .main > .tagline {
+.VPHomeHero>.container>.main>.tagline {
   padding-top: 24px;
 }
 
 /* 自适应样式 */
 @media (max-width: 1024px) {
+
   /* 首页标题样式 */
-  .VPHomeHero > .container > .main > h1 {
-    font-size: 3.5rem;
+  .VPHomeHero>.container>.main>h1,
+  .VPHomeHero .container .main h1,
+  .VPHero h1.name,
+  .VPHero .name {
+    font-size: 60px !important;
+    /* 平板端稍小 */
   }
 
   /* 首页子标题样式 */
-  .VPHomeHero > .container > .main > .text {
+  .VPHomeHero>.container>.main>.text {
     padding-top: 30px;
     font-size: 3rem;
   }
 
   /* 首页介绍样式 */
-  .VPHomeHero > .container > .main > .tagline {
+  .VPHomeHero>.container>.main>.tagline {
     padding-top: 20px;
   }
 }
 
 /* 自适应样式 */
 @media (max-width: 640px) {
+
   /* 首页标题样式 */
-  .VPHomeHero > .container > .main > h1 {
-    font-size: 2.5rem;
+  .VPHomeHero>.container>.main>h1,
+  .VPHomeHero .container .main h1,
+  .VPHero h1.name,
+  .VPHero .name {
+    font-size: 40px !important;
+    /* 移动端更小 */
   }
 
   /* 首页子标题样式 */
-  .VPHomeHero > .container > .main > .text {
+  .VPHomeHero>.container>.main>.text {
     padding-top: 20px;
     font-size: 2rem;
   }
 
   /* 首页介绍样式 */
-  .VPHomeHero > .container > .main > .tagline {
+  .VPHomeHero>.container>.main>.tagline {
     padding-top: 20px;
   }
+}
+
+/* 主页背景渐变效果 */
+.VPHome::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(173, 216, 230, 0.2), rgba(221, 160, 221, 0.2));
+  z-index: -1;
 }
 
 /* 主页下方的页脚透明度 */
@@ -174,7 +209,7 @@ html, body {
 }
 
 /* 脚注 */
-.footnotes > .footnotes-list {
+.footnotes>.footnotes-list {
   margin-top: 32px;
   opacity: 0.9;
   font-size: 12px;
@@ -182,12 +217,12 @@ html, body {
   font-family: sans-serif;
 }
 
-.footnotes > .footnotes-list > .footnote-item > p {
+.footnotes>.footnotes-list>.footnote-item>p {
   line-height: 18px;
 }
 
 /* 覆盖正文的 h1 标题样式 */
-.vp-doc > div > h1 {
+.vp-doc>div>h1 {
   margin-bottom: 16px;
 }
 
@@ -204,61 +239,58 @@ html, body {
   Discord 链接按钮样式
 */
 
-.VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"].VPButton.alt {
-  color: white !important;
-  background-color: #404eed !important;
-  border-color: #404eed !important;
+.VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"] {
+  color: #6972d4;
+  border: 2px #6972d4 solid;
+  background-color: transparent;
 }
 
-.VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"].VPButton.alt:hover {
-  color: white !important;
-  background-color: #6975f2 !important;
-  border-color: #6975f2 !important;
+.VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"]:hover {
+  color: white;
+  background-color: #6975f2;
 }
 
-.VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"].VPButton.alt:active {
-  color: white !important;
-  background-color: #404eed !important;
-  border-color: #404eed !important;
+.VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"]:active {
+  color: white;
+  background-color: #404eed;
 }
 
 /**
   暗色模式下 Discord 链接按钮样式
 */
 
-.dark .VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"].VPButton.alt {
-  color: white !important;
-  background-color: #444c9e !important;
-  border-color: #444c9e !important;
+.dark .VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"] {
+  color: #898fcf;
+  border: 2px #898fcf solid;
+  background-color: transparent;
 }
 
-.dark .VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"].VPButton.alt:hover {
-  color: white !important;
-  background-color: #404eed !important;
-  border-color: #404eed !important;
+.dark .VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"]:hover {
+  color: white;
+  background-color: #404eed;
 }
 
-.dark .VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"].VPButton.alt:active {
-  color: white !important;
-  background-color: #444c9e !important;
-  border-color: #444c9e !important;
+.dark .VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"]:active {
+  color: white;
+  background-color: #444c9e;
 }
 
 /**
   GitHub 链接按钮样式
 */
 
-.VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/integrations"] {
-  color: white;
-  background-color: #000;
+.VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/nolebase"] {
+  color: #616161;
+  border: 2px #616161 solid;
+  background-color: transparent;
 }
 
-.VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/integrations"]:hover {
+.VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/nolebase"]:hover {
   color: white;
   background-color: #4b4b4b;
 }
 
-.VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/integrations"]:active {
+.VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/nolebase"]:active {
   color: white;
   background-color: #000;
 }
@@ -267,34 +299,44 @@ html, body {
   暗色模式下 GitHub 链接按钮样式
 */
 
-.dark .VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/integrations"] {
-  color: white;
-  background-color: #4b4b4b;
+.dark .VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/nolebase"] {
+  color: #a4a4a4;
+  border: 2px #a4a4a4 solid;
+  background-color: transparent
 }
 
-.dark .VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/integrations"]:hover {
+.dark .VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/nolebase"]:hover {
   color: white;
   background-color: #252525;
 }
 
-.dark .VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/integrations"]:active {
+.dark .VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/nolebase"]:active {
   color: white;
   background-color: #4b4b4b;
 }
 
+/*图标下透明层*/
 .VPHomeHero .image img {
   border-radius: 24px;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.18);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   padding: 8px;
   width: 280px;
   height: 280px;
   object-fit: cover;
-  transition: 
-    box-shadow 0.3s cubic-bezier(.4,2,.6,1),
+  transition:
+    box-shadow 0.3s cubic-bezier(.4, 2, .6, 1),
     background 0.3s,
-    transform 0.3s cubic-bezier(.4,2,.6,1);
+    transform 0.3s cubic-bezier(.4, 2, .6, 1);
   border: none;
+}
+
+/**
+ * 修复暗黑模式下 MathJax 公式的颜色。
+ * 这条规则让 MathJax 容器的文字颜色继承 VitePress 主题的当前颜色。
+ */
+.dark mjx-container {
+  color: inherit;
 }

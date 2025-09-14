@@ -86,15 +86,6 @@
     #d6c0e890
   );
   --vp-home-hero-image-filter: blur(30px);
-  
-  /* 背景渐变效果 */
-  --vp-c-bg-alpha-with-backdrop-filter: rgba(255, 255, 255, 0.7);
-  --vp-c-bg-alpha-without-backdrop-filter: rgba(255, 255, 255, 0.9);
-  
-  /* 页面背景 */
-  --vp-c-bg: #ffffff;
-  --vp-c-bg-soft: #f9f9f9;
-  --vp-c-bg-mute: #f1f1f1;
 }
 
 @media (min-width: 640px) {
@@ -107,17 +98,6 @@
   :root {
     --vp-home-hero-image-filter: blur(72px);
   }
-}
-
-/* 暗色模式下的透明效果 */
-.dark {
-  --vp-c-bg-alpha-with-backdrop-filter: rgba(36, 36, 36, 0.7);
-  --vp-c-bg-alpha-without-backdrop-filter: rgba(36, 36, 36, 0.9);
-  
-  /* 暗色模式页面背景 */
-  --vp-c-bg: #242424;
-  --vp-c-bg-soft: #2c2c2c;
-  --vp-c-bg-mute: #313131;
 }
 
 /**

@@ -1,18 +1,16 @@
-import process from 'node:process'
-import { defineConfig } from 'vitepress'
+import { presetMarkdownIt } from '@nolebase/integrations/vitepress/markdown-it'
+import { transformHeadMeta } from '@nolebase/vitepress-plugin-meta'
+import { calculateSidebar } from '@nolebase/vitepress-plugin-sidebar'
+// import { buildEndGenerateOpenGraphImages } from '@nolebase/vitepress-plugin-og-image/vitepress'
 import MarkdownItFootnote from 'markdown-it-footnote'
-import markPlugin from 'markdown-it-mark'; // Import the plugin
 
+import MarkdownItMark from 'markdown-it-mark'
+import { defineConfig } from 'vitepress'
 
+import { discordLink, githubRepoLink, siteDescription, siteName } from '../metadata'
+import head from './head'
 
-import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
-import { InlineLinkPreviewElementTransform } from '@nolebase/vitepress-plugin-inline-link-preview/markdown-it'
-import { buildEndGenerateOpenGraphImages } from '@nolebase/vitepress-plugin-og-image/vitepress'
-import { UnlazyImages } from '@nolebase/markdown-it-unlazy-img'
-
-import { discordLink, githubRepoLink, siteDescription, siteName, targetDomain } from '../metadata'
-import { creatorNames, creatorUsernames } from './creators'
-import { sidebar } from './docsMetadata.json'
+const nolebase = presetMarkdownIt()
 
 export default defineConfig({
   vue: {
@@ -27,190 +25,11 @@ export default defineConfig({
       },
     },
   },
-
-  vite: {
-    build: {
-      rollupOptions: {
-        output: {
-          assetFileNames: (assetInfo) => {
-            const info = assetInfo.name?.split('.') || []
-            const ext = info[info.length - 1]
-            if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
-              return `assets/images/[name]-[hash][extname]`
-            }
-            if (/woff2?|eot|ttf|otf/i.test(ext)) {
-              return `assets/fonts/[name]-[hash][extname]`
-            }
-            return `assets/[name]-[hash][extname]`
-          },
-        },
-      },
-      minify: 'terser',
-      terserOptions: {
-        compress: {
-          drop_console: true,
-          drop_debugger: true,
-        },
-      },
-    },
-  },
-
-markdown: {
-  theme: {
-    light: 'github-light',
-    dark: 'one-dark-pro',
-  },
-  math: false,
-  config: (md: any) => { // 这里 md 的类型可以更具体，例如 markdownit, 如果你有类型定义的话
-    // 直接在这里调用 md.use()
-    md.use(MarkdownItFootnote);
-    md.use(markPlugin);
-    md.use(BiDirectionalLinks({ dir: process.cwd() }));
-    md.use(UnlazyImages(), { imgElementTag: 'NolebaseUnlazyImg' });
-    md.use(InlineLinkPreviewElementTransform, { tag: 'VPNolebaseInlineLinkPreview' });
-  }, // <-- 这里的 } 结束了 config 函数
-  // 如果还有其他 markdown 的配置项，可以写在这里
-},
-
-  lang: 'zh-CN',
   title: siteName,
   description: siteDescription,
   ignoreDeadLinks: true,
-  head: [
-    ['meta', {
-      name: 'theme-color',
-      content: '#ffffff',
-    }],
-    [
-      'link',
-      {
-        rel: 'apple-touch-icon',
-        href: '/apple-touch-icon.png',
-        sizes: '180x180',
-      },
-    ],
-    ['link', {
-      rel: 'icon',
-      href: '/logo.svg',
-      type: 'image/svg+xml',
-    }],
-    [
-      'link',
-      {
-        rel: 'alternate icon',
-        href: '/favicon.ico',
-        type: 'image/png',
-        sizes: '16x16',
-      },
-    ],
-    ['meta', {
-      name: 'author',
-      content: creatorNames.join(', '),
-    }],
-    [
-      'meta',
-      {
-        name: 'keywords',
-        content:
-          ['markdown', 'knowledge-base', '知识库', 'vitepress', 'obsidian', 'notebook', 'notes', ...creatorUsernames].join(', '),
-      },
-    ],
-
-    ['meta', {
-      property: 'og:title',
-      content: siteName,
-    }],
-    [
-      'meta',
-      {
-        property: 'og:image',
-        content: `${targetDomain}/og.png`,
-      },
-    ],
-    ['meta', {
-      property: 'og:description',
-      content: siteDescription,
-    }],
-    ['meta', {
-      property: 'og:site_name',
-      content: siteName,
-    }],
-
-    ['meta', {
-      name: 'twitter:card',
-      content: 'summary_large_image',
-    }],
-    ['meta', {
-      name: 'twitter:creator',
-      content: creatorUsernames.join(', '),
-    }],
-    [
-      'meta',
-      {
-        name: 'twitter:image',
-        content: `${targetDomain}/og.png`,
-      },
-    ],
-
-    [
-      'link',
-      {
-        rel: 'mask-icon',
-        href: '/safari-pinned-tab.svg',
-        color: '#927baf',
-      },
-    ],
-    ['link', {
-      rel: 'manifest',
-      href: '/site.webmanifest',
-    }],
-    ['meta', {
-      name: 'msapplication-TileColor',
-      content: '#603cba',
-    }],
-
-    // 注入 MathJax v4 的配置
-    [
-      'script',
-      {}, // 空对象表示没有额外属性
-      `window.MathJax = {
-        output: {
-          font: 'mathjax-termes' // 全局指定使用 mathjax-termes 字体
-        },
-         tex: {
-          inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
-        }
-      };`
-    ],
-    // 注入 MathJax v4 的主脚本 (-nofont 版本以优化性能)
-    [
-      'script',
-      {
-        src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.4/tex-chtml-nofont.js',
-        async: 'true',
-      },
-    ],
-
-    // Proxying Plausible through Netlify | Plausible docs
-    // https://plausible.io/docs/proxy/guides/netlify
-    ['script', { 'defer': 'true', 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
-  ],
+  head,
   themeConfig: {
-    outline: { label: '页面大纲', level: 'deep' },
-    darkModeSwitchLabel: '切换主题',
-    editLink: {
-      pattern: `${githubRepoLink}/tree/main/:path`,
-      text: '编辑本页面',
-    },
-    socialLinks: [
-      { icon: 'github', link: githubRepoLink },
-      { icon: 'discord', link: discordLink },
-    ],
-    footer: {
-      message: '用 <span style="color: #e25555;">&#9829;</span> 撰写',
-      copyright:
-        '<a class="footer-cc-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> © 2022-PRESENT Nólëbase 的创作者们',
-    },
     search: {
       provider: 'local',
       options: {
@@ -253,7 +72,7 @@ markdown: {
 
           contentPart = content ||= src
 
-          const headingMatch = content.match(/^#{1} .*/m)
+          const headingMatch = content.match(/^# .*/m)
           const hasHeading = !!(headingMatch && headingMatch[0] && headingMatch.index !== undefined)
 
           if (hasHeading) {
@@ -277,20 +96,71 @@ markdown: {
         },
       },
     },
-    nav: [
-      { text: '主页', link: '/' },
-      { text: '笔记', link: '/笔记/' },
-      { text: '最近更新', link: '/toc' },
-    ],
-    sidebar,
   },
-
-  async buildEnd(siteConfig) {
-    await buildEndGenerateOpenGraphImages({
-      baseUrl: targetDomain,
-      category: {
-        byLevel: 2,
+  locales: {
+    root: {
+      lang: 'zh-CN',
+      label: '中文',
+      dir: '/zh-CN',
+      link: '/zh-CN',
+      themeConfig: {
+        nav: [
+          { text: '主页', link: '/zh-CN/' },
+          { text: '笔记', link: '/zh-CN/笔记/' },
+          { text: '项目Log', link: '/zh-CN/项目Log/' },
+          { text: '最近更新', link: '/zh-CN/toc' },
+        ],
+        socialLinks: [
+          { icon: 'github', link: githubRepoLink },
+          { icon: 'discord', link: discordLink },
+        ],
+        darkModeSwitchLabel: '切换主题',
+        outline: { label: '页面大纲', level: 'deep' },
+        editLink: {
+          pattern: `${githubRepoLink}/tree/main/:path`,
+          text: '编辑本页面',
+        },
+        sidebar: calculateSidebar([
+          { folderName: 'zh-CN/笔记', separate: true },
+          { folderName: 'zh-CN/项目Log', separate: true },
+        ], 'zh-CN'),
+        footer: {
+          message: '用 <span style="color: #e25555;">&#9829;</span> 撰写',
+          copyright:
+        '<a class="footer-cc-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> © 2022-PRESENT Nólëbase 的创作者们',
+        },
       },
-    })(siteConfig)
+    },
   },
+  markdown: {
+    theme: {
+      light: 'github-light',
+      dark: 'one-dark-pro',
+    },
+    math: false,
+    preConfig: async (md) => {
+      await nolebase.install(md)
+    },
+    config: (md) => {
+      md.use(MarkdownItFootnote)
+      md.use(MarkdownItMark)
+    },
+  },
+  async transformHead(context) {
+    let head = [...context.head]
+
+    const returnedHead = await transformHeadMeta()(head, context)
+    if (typeof returnedHead !== 'undefined')
+      head = returnedHead
+
+    return head
+  },
+  // async buildEnd(siteConfig) {
+  //   await buildEndGenerateOpenGraphImages({
+  //     baseUrl: targetDomain,
+  //     category: {
+  //       byLevel: 2,
+  //     },
+  //   })(siteConfig)
+  // },
 })

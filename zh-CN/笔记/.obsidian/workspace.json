@@ -1,0 +1,238 @@
+{
+  "main": {
+    "id": "331074ea56e866f3",
+    "type": "split",
+    "children": [
+      {
+        "id": "c59f485c7ffb4a79",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f261e36b293c6d7c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "📔我的/🌐网络技巧/Great Firewall.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Great Firewall"
+            }
+          },
+          {
+            "id": "ac55cddccd6f610c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "📔我的/⬇️资源下载/Sibelius2024下载运行教程.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Sibelius2024下载运行教程"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "be778c4d6c4d1147",
+    "type": "split",
+    "children": [
+      {
+        "id": "5ac9735662fd77a1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ac63568be97b5b9d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "479fec9576d00c3f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "b6845fd1ddbc1eec",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "730b5b7f9de1df45",
+    "type": "split",
+    "children": [
+      {
+        "id": "7cc2e8654f048ca1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4a9b07c947db7904",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Symbol字体对照表.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Symbol字体对照表 的反向链接列表"
+            }
+          },
+          {
+            "id": "72624834649a6f22",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Symbol字体对照表.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Symbol字体对照表 的出链列表"
+            }
+          },
+          {
+            "id": "08ad8516adad8af7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "a89e96ee3cd618e4",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Symbol字体对照表.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Symbol字体对照表 的大纲"
+            }
+          },
+          {
+            "id": "87652ac6a72b316a",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "advanced-tables-toolbar"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:创建新数据库": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
+    }
+  },
+  "active": "ac55cddccd6f610c",
+  "lastOpenFiles": [
+    "📔我的/🌐网络技巧/Great Firewall.md",
+    "📔我的/⬇️资源下载/Sibelius2024下载运行教程.md",
+    "📔我的/⬇️资源下载/如何下载无损电子版教材？.md",
+    "🎼乐谱发布/夢の星空.md",
+    "📔我的/MathJax LaTeX 综合测试页面.md",
+    "📔我的/🖥程序运行/Windows系统下删除时：你需要来自 Administrator 的权限才能对此文件夹进行更改.md",
+    "📔我的/🖥程序运行/有趣的小技巧.md",
+    "📔我的/🖥程序运行/如何使用 Git 交互式 rebase 删除历史提交.md",
+    "Clippings/IP Address Lookup  IPv4  IPv6 - IP.SB.md",
+    "Clippings",
+    "📔我的/🖥程序运行/assets/6.png",
+    "📔我的/🖥程序运行/assets/4.png",
+    "📔我的/🖥程序运行/assets/1.png",
+    "📔我的/🖥程序运行/assets/2.png",
+    "index.md",
+    "📔我的/📃文字字体/Symbol字体对照表.md",
+    "📔我的/📃文字字体/VitePress 优雅集成 MathJax v4：打造专业级数学公式显示.md",
+    "📔我的/📃文字字体/开源字体嵌入CDN.md",
+    "外部链接.md",
+    "Obsidian官方文档/基本格式语法.md",
+    "Obsidian官方文档/嵌入网页.md",
+    "Obsidian官方文档/高级格式语法.md",
+    "✍️ 文档工程/图表即代码（CaC）图表绘制.md",
+    "Obsidian官方文档",
+    "✍️ 文档工程/API 文档系统.md",
+    "未命名.base",
+    "未命名.canvas",
+    "2025-08-20.md",
+    "📔我的/⬇️资源下载/assets/Pasted image 20250702161703.png",
+    "📔我的/⬇️资源下载/assets/Pasted image 20250702161912.png",
+    "📔我的/🖥程序运行/assets/9.png",
+    "📔我的/🖥程序运行/assets/8.png",
+    "📔我的/🖥程序运行/assets/5.png",
+    "📔我的/🖥程序运行/assets/7.png",
+    "📔我的/📃文字字体"
+  ]
+}
