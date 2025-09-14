@@ -47,7 +47,7 @@
         <h3 class="modal-title">感谢您的支持！</h3>
         
         <p class="modal-description">
-          如果您觉得内容对您有帮助，可以请作者喝杯咖啡☕
+          赞赏支持
         </p>
         
         <div class="qr-container">
