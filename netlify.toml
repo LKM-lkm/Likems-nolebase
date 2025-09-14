@@ -3,7 +3,7 @@
   command = "pnpm install && pnpm run build"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20.19.0"
   PNPM_VERSION = "10.16.1"
 
 [[redirects]]
