@@ -107,20 +107,22 @@ export default [
       tex: {
         inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
       },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      chtml: {
+        fontURL: '/mathjax-termes-font/chtml'
       },
-      startup: {
-        ready() {
-          MathJax.startup.defaultReady();
-        }
+      loader: {
+        load: []
+      },
+      options: {
+        enableMenu: false,
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
       }
     };`
   ],
   [
     'script',
     {
-      src: '/mathjax-termes-font/tex-mml-chtml-mathjax-termes.js',
+      src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.7/tex-chtml.js',
       defer: 'true',
     },
   ],
