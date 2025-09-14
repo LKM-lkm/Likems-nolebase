@@ -100,22 +100,33 @@ export default [
   // https://plausible.io/docs/proxy/guides/netlify
   ['script', { 'defer': 'true', 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
 
-  // 直接使用本地的 mathjax-termes 完整版本
+  [
+    'script',
+    {},
+    `window.MathJax = {
+      loader: {
+        paths: {
+          'mathjax-termes': '/mathjax-termes-font'
+        }
+      },
+      tex: {
+        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
+      },
+      startup: {
+        ready() {
+          if (typeof document !== 'undefined') {
+            MathJax.startup.defaultReady();
+          }
+        }
+      }
+    };`
+  ],
   [
     'script',
     {
       src: '/mathjax-termes-font/tex-mml-chtml-mathjax-termes.js',
       defer: 'true',
     },
-  ],
-  [
-    'script',
-    {},
-    `window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
-      }
-    };`
   ],
 
 ] satisfies HeadConfig[]
