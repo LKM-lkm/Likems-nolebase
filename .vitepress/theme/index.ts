@@ -6,6 +6,7 @@ import { h } from 'vue'
 
 import AppContainer from './components/AppContainer.vue'
 import DocFooter from './components/DocFooter.vue'
+import Gitcus from './components/Gitcus'
 import HomePage from './components/HomePage.vue'
 import Share from './components/Share.vue'
 import SponsorSupport from './components/SponsorSupport.vue'
@@ -40,6 +41,7 @@ const ExtendedTheme: Theme = {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
       'doc-top': () => [
         ...slots['doc-top'].map(slot => slot()),
+        h(Gitcus),
       ],
       'doc-footer-before': () => [
         h(DocFooter),
@@ -71,6 +73,7 @@ const ExtendedTheme: Theme = {
     app.component('Share', Share)
     app.component('AppContainer', AppContainer)
     app.component('SponsorSupport', SponsorSupport)
+    app.component('Gitcus', Gitcus)
   },
 }
 

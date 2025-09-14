@@ -104,19 +104,15 @@ export default [
     'script',
     {},
     `window.MathJax = {
-      loader: {
-        paths: {
-          'mathjax-termes': '/mathjax-termes-font'
-        }
-      },
       tex: {
         inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
       },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      },
       startup: {
         ready() {
-          if (typeof document !== 'undefined') {
-            MathJax.startup.defaultReady();
-          }
+          MathJax.startup.defaultReady();
         }
       }
     };`
