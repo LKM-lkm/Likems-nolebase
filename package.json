@@ -86,6 +86,7 @@
     "@mathjax/mathjax-termes-font": "^4.0.0",
     "markdown-it-mark": "^4.0.0",
     "mathjax": "^4.0.0",
-    "package.json": "^2.0.1"
+    "package.json": "^2.0.1",
+    "vitepress-plugin-comment-with-giscus": "^1.1.15"
   }
 }
