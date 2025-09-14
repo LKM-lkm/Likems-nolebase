@@ -111,11 +111,7 @@ export default [
         fontURL: '/mathjax-termes-font/chtml'
       },
       startup: {
-        ready() {
-          if (typeof document !== 'undefined') {
-            MathJax.startup.defaultReady();
-          }
-        }
+        document: 'none'
       }
     };`
   ],
@@ -126,6 +122,18 @@ export default [
       src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.7/tex-chtml.js',
       defer: 'true',
     },
+  ],
+  [
+    'script',
+    {},
+    `if (typeof window !== 'undefined') {
+      window.addEventListener('DOMContentLoaded', function() {
+        if (window.MathJax && window.MathJax.startup) {
+          window.MathJax.startup.document = document;
+          window.MathJax.startup.defaultReady();
+        }
+      });
+    }`
   ],
 
 ] satisfies HeadConfig[]
