@@ -100,40 +100,22 @@ export default [
   // https://plausible.io/docs/proxy/guides/netlify
   ['script', { 'defer': 'true', 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
 
-  [
-    'script',
-    {},
-    `window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
-      },
-      chtml: {
-        fontURL: '/mathjax-termes-font/chtml'
-      },
-      startup: {
-        document: 'none'
-      }
-    };`
-  ],
-  // 注入 MathJax v4 的主脚本 (使用完整版本以支持自定义字体)
+  // 直接使用本地的 mathjax-termes 完整版本
   [
     'script',
     {
-      src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.7/tex-chtml.js',
+      src: '/mathjax-termes-font/tex-mml-chtml-mathjax-termes.js',
       defer: 'true',
     },
   ],
   [
     'script',
     {},
-    `if (typeof window !== 'undefined') {
-      window.addEventListener('DOMContentLoaded', function() {
-        if (window.MathJax && window.MathJax.startup) {
-          window.MathJax.startup.document = document;
-          window.MathJax.startup.defaultReady();
-        }
-      });
-    }`
+    `window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
+      }
+    };`
   ],
 
 ] satisfies HeadConfig[]
