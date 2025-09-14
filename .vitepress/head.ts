@@ -100,12 +100,12 @@ export default [
   // https://plausible.io/docs/proxy/guides/netlify
   ['script', { 'defer': 'true', 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
 
-  // MathJax v4 配置
-  ['script', {}, 'window.MathJax = { tex: { inlineMath: [["$", "$"], ["\\\\(", "\\\\)"]], displayMath: [["$$", "$$"], ["\\\\[", "\\\\]"]], processEscapes: true, processEnvironments: true }, startup: { ready: () => { console.log("MathJax is loaded, but not yet initialized"); MathJax.startup.defaultReady(); console.log("MathJax is initialized, and the initial typeset is queued"); } }, options: { ignoreHtmlClass: "tex2jax_ignore", processHtmlClass: "tex2jax_process" } };'],
+  // MathJax 配置 - 简化版本
+  ['script', {}, 'window.MathJax = { tex: { inlineMath: [["$", "$"], ["\\\\(", "\\\\)"]], displayMath: [["$$", "$$"], ["\\\\[", "\\\\]"]] } };'],
 
-  // MathJax v4 主脚本 - 使用正式版本
+  // MathJax 主脚本 - 使用稳定的 v3 版本
   ['script', {
-    src: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
+    src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
     async: 'true'
   }],
 ] satisfies HeadConfig[]
