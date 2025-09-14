@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.texOldstyle = void 0;
+exports.texOldstyle = {
+    0x24: [.745, .083, .556],
+    0x30: [.47, .02, .532],
+    0x31: [.471, 0, .363],
+    0x32: [.47, 0, .525],
+    0x33: [.47, .22, .469],
+    0x34: [.509, .167, .54],
+    0x35: [.47, .232, .486],
+    0x36: [.684, .014, .514],
+    0x37: [.456, .214, .509],
+    0x38: [.676, .014, .469],
+    0x39: [.47, .228, .509],
+    0xA2: [.533, .083, .444]
+};
+//# sourceMappingURL=tex-oldstyle.js.map

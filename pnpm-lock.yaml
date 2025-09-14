@@ -8,7 +8,13 @@ importers:
 
   .:
     dependencies:
+      '@mathjax/mathjax-termes-font':
+        specifier: ^4.0.0
+        version: 4.0.0
       markdown-it-mark:
+        specifier: ^4.0.0
+        version: 4.0.0
+      mathjax:
         specifier: ^4.0.0
         version: 4.0.0
       package.json:
@@ -1036,6 +1042,12 @@ packages:
     resolution: {integrity: sha512-llMXd39jtP0HpQLVI37Bf1m2ADlEb35GYSh1SDSLsBhR+5iCxiNGlT31yqbNtVHygHAtMy6dWFERpU2JgufhPg==}
     engines: {node: '>=18'}
     hasBin: true
+
+  '@mathjax/mathjax-newcm-font@4.0.0':
+    resolution: {integrity: sha512-kpsJgIF4FpWiwIkFgOPmWwy5GXfL25spmJJNg27HQxPddmEL8Blx0jn2BuU/nlwjM/9SnYpEfDrWiAMgLPlB8Q==}
+
+  '@mathjax/mathjax-termes-font@4.0.0':
+    resolution: {integrity: sha512-durvEkfHqlvThnydThKTOmAbtuqVVcm44Pb3MERL5uO23PqzlnkgPLDtsWA5CQOErrDq+zUQREWQBkIfx9UcqA==}
 
   '@mrdrogdrog/optional@1.2.1':
     resolution: {integrity: sha512-8JdrQautBZ+nxTC29Sp7z/plyONdgPDjCbFTf6Iih5spZKW18EmP2D4zd48wG9Nn0Qpe8f0p9f8/94SlZFl4tQ==}
@@ -3345,6 +3357,9 @@ packages:
   mathjax-full@3.2.2:
     resolution: {integrity: sha512-+LfG9Fik+OuI8SLwsiR02IVdjcnRCy5MufYLi0C3TdMT56L/pjB0alMVGgoWJF8pN9Rc7FESycZB9BMNWIid5w==}
 
+  mathjax@4.0.0:
+    resolution: {integrity: sha512-ThMPHiPl9ibZBInAmfoTCNq9MgCdH7ChIQ9YhKFc325noJ4DMzy9/Q14qdcuPzVJjEmC3kyXhwnERZWX3hbWzQ==}
+
   mdast-util-find-and-replace@3.0.2:
     resolution: {integrity: sha512-Tmd1Vg/m3Xz43afeNxDIhWRtFZgM2VLyaf4vSTYwudTyeuTneoL3qtWMA5jeLyz/O1vDJmmV4QuScFCA2tBPwg==}
 
@@ -5411,6 +5426,10 @@ snapshots:
     transitivePeerDependencies:
       - encoding
       - supports-color
+
+  '@mathjax/mathjax-newcm-font@4.0.0': {}
+
+  '@mathjax/mathjax-termes-font@4.0.0': {}
 
   '@mrdrogdrog/optional@1.2.1': {}
 
@@ -8183,6 +8202,10 @@ snapshots:
       mhchemparser: 4.2.1
       mj-context-menu: 0.6.1
       speech-rule-engine: 4.0.7
+
+  mathjax@4.0.0:
+    dependencies:
+      '@mathjax/mathjax-newcm-font': 4.0.0
 
   mdast-util-find-and-replace@3.0.2:
     dependencies:

@@ -83,7 +83,9 @@
     "vue": "^3.5.18"
   },
   "dependencies": {
+    "@mathjax/mathjax-termes-font": "^4.0.0",
     "markdown-it-mark": "^4.0.0",
+    "mathjax": "^4.0.0",
     "package.json": "^2.0.1"
   }
 }
