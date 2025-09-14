@@ -114,7 +114,7 @@ export default [
   
   // MathJax v4 主脚本 (本地托管版本)
   ['script', {
-    src: '/js/mathjax-tex-chtml-nofont.js',
+    src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.7/tex-chtml-nofont.js',
     async: 'true'
   }],
 ] satisfies HeadConfig[]

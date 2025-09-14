@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目Log/对项目进行的修改.md",
+                "file": "笔记/📔我的/📃文字字体/VitePress 优雅集成 MathJax v4：打造专业级数学公式显示.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "对项目进行的修改"
+              "title": "VitePress 优雅集成 MathJax v4：打造专业级数学公式显示"
             }
           }
         ]
@@ -167,5 +167,7 @@
     }
   },
   "active": "0971da0470acc148",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "项目Log/对项目进行的修改.md"
+  ]
 }
