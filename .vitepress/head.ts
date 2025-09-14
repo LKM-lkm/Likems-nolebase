@@ -102,7 +102,7 @@ export default [
 
   [
     'script',
-    {}, // 空对象表示没有额外属性
+    {},
     `window.MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
@@ -112,7 +112,9 @@ export default [
       },
       startup: {
         ready() {
-          MathJax.startup.defaultReady();
+          if (typeof document !== 'undefined') {
+            MathJax.startup.defaultReady();
+          }
         }
       }
     };`
@@ -122,7 +124,7 @@ export default [
     'script',
     {
       src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.7/tex-chtml.js',
-      async: 'true',
+      defer: 'true',
     },
   ],
 
