@@ -104,7 +104,7 @@ export default [
   ['script', {}, `
     window.MathJax = {
       output: {
-        font: 'mathjax-termes' // 全局指定使用 mathjax-termes 字体
+        font: 'mathjax-termes'
       },
       tex: {
         inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
@@ -112,9 +112,9 @@ export default [
     };
   `],
   
-  // MathJax v4 主脚本 (-nofont 版本以优化性能)
+  // MathJax v4 主脚本 (本地托管版本)
   ['script', {
-    src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.4/tex-chtml-nofont.js',
+    src: '/js/mathjax-tex-chtml-nofont.js',
     async: 'true'
   }],
 ] satisfies HeadConfig[]
