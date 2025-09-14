@@ -116,7 +116,7 @@ export default [
   [
     'script',
     {
-      src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.4/tex-chtml-nofont.js',
+      src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0-beta.7/tex-chtml-nofont.js',
       async: 'true',
     },
   ],
