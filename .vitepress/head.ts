@@ -105,9 +105,6 @@ export default [
     'script',
     {},
     `window.MathJax = {
-      output: {
-        font: 'mathjax-termes'
-      },
       tex: {
         inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
       }
