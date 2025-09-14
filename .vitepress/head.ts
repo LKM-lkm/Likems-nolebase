@@ -101,27 +101,7 @@ export default [
   ['script', { 'defer': 'true', 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
 
   // MathJax v4 配置
-  ['script', {}, `
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-        displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
-        processEscapes: true,
-        processEnvironments: true
-      },
-      startup: {
-        ready: () => {
-          console.log('MathJax is loaded, but not yet initialized');
-          MathJax.startup.defaultReady();
-          console.log('MathJax is initialized, and the initial typeset is queued');
-        }
-      },
-      options: {
-        ignoreHtmlClass: 'tex2jax_ignore',
-        processHtmlClass: 'tex2jax_process'
-      }
-    };
-  `],
+  ['script', {}, 'window.MathJax = { tex: { inlineMath: [["$", "$"], ["\\\\(", "\\\\)"]], displayMath: [["$$", "$$"], ["\\\\[", "\\\\]"]], processEscapes: true, processEnvironments: true }, startup: { ready: () => { console.log("MathJax is loaded, but not yet initialized"); MathJax.startup.defaultReady(); console.log("MathJax is initialized, and the initial typeset is queued"); } }, options: { ignoreHtmlClass: "tex2jax_ignore", processHtmlClass: "tex2jax_process" } };'],
 
   // MathJax v4 主脚本 - 使用正式版本
   ['script', {
