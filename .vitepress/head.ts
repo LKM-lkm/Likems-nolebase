@@ -40,7 +40,7 @@ export default [
     {
       name: 'keywords',
       content:
-          ['markdown', 'knowledge-base', '知识库', 'vitepress', 'obsidian', 'notebook', 'notes', ...creatorUsernames].join(', '),
+        ['markdown', 'knowledge-base', '知识库', 'vitepress', 'obsidian', 'notebook', 'notes', ...creatorUsernames].join(', '),
     },
   ],
 
@@ -99,22 +99,33 @@ export default [
   // Proxying Plausible through Netlify | Plausible docs
   // https://plausible.io/docs/proxy/guides/netlify
   ['script', { 'defer': 'true', 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
-  
+
   // MathJax v4 配置
   ['script', {}, `
     window.MathJax = {
-      output: {
-        font: 'mathjax-termes'
-      },
       tex: {
-        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
+        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
+        displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      startup: {
+        ready: () => {
+          console.log('MathJax is loaded, but not yet initialized');
+          MathJax.startup.defaultReady();
+          console.log('MathJax is initialized, and the initial typeset is queued');
+        }
+      },
+      options: {
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
       }
     };
   `],
-  
-  // MathJax v4 主脚本 (本地托管版本)
+
+  // MathJax v4 主脚本 - 使用正式版本
   ['script', {
-    src: 'https://fastly.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml-nofont.js',
+    src: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
     async: 'true'
   }],
 ] satisfies HeadConfig[]
