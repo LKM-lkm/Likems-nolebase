@@ -16,7 +16,7 @@ tags:
 	- 需科学上网才能访问，可以借助一些免费额度
 	- MASQUE协议可用，但不稳定，与CF自建节点区别在它可以访问Cloudflare的网站）
 	- 在安装目录创建`mdm.xml`，内容如下：
-	- ```xml
+	```xml
 	<dict>
 			<key>warp_tunnel_protocol</key>
 			<string>masque</string>
