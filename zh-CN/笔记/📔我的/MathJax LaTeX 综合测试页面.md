@@ -1,6 +1,6 @@
 ---
 title: MathJax LaTeX 综合测试页面
-description: 一个用于全面测试 VitePress 中 MathJax v4 渲染效果的页面，涵盖各种公式和边缘情况。
+description: 一个用于全面测试 VitePress 中 MathJax v4 渲染效果的页面，涵盖各种公式和边缘情况。目前仅适用于nolebase-template，不适用于原版。
 ---
 
 # MathJax LaTeX 综合测试页面

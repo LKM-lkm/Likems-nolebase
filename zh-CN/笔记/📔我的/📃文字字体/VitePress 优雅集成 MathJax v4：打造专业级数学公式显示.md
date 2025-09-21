@@ -3,6 +3,7 @@ tags:
   - 数学
   - 文字渲染
 comment: true
+description: 目前仅适用于nolebase-template，不适用于原版。
 ---
 # VitePress 优雅集成 MathJax v4：打造专业级数学公式显示
 

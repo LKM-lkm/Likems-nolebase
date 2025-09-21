@@ -83,15 +83,6 @@ body {
   font-display: swap;
 }
 
-/* FZXiaoBiaoSong 字体 - 中文标题 */
-@font-face {
-  font-family: 'FZDaHei';
-  src: url(/FZDaHei.woff2) format('woff2');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* 首页主标题样式 - 只针对 h1 标题 */
 .VPHomeHero>.container>.main>h1,
 .VPHomeHero .container .main h1,
@@ -100,7 +91,7 @@ body {
   font-size: 80px !important;
   font-weight: bold !important;
   line-height: 1.2 !important;
-  font-family: 'PlayfairDisplay-Bold', 'any', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+  font-family: 'PlayfairDisplay-Bold', 'defalt', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
   transform: none !important;
 }
 

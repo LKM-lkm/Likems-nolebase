@@ -6,6 +6,7 @@
     :class="[
       donated ? '!text-green-400' : '',
       !donated ? 'hover:sm:text-$vp-c-brand' : '',
+      'sponsor-button'
     ]"
     :disabled="donated"
     @click="toggleModal" 
@@ -85,16 +86,24 @@ const donated = ref(false)
 const toggleModal = () => {
   if (!donated.value) {
     showModal.value = !showModal.value
+    // 移动端打开弹窗时防止背景滚动
+    if (showModal.value && window.innerWidth <= 768) {
+      document.body.style.overflow = 'hidden'
+    }
   }
 }
 
 const closeModal = () => {
   showModal.value = false
+  // 恢复背景滚动
+  document.body.style.overflow = ''
 }
 
 const handleDonated = () => {
   donated.value = true
   showModal.value = false
+  // 恢复背景滚动
+  document.body.style.overflow = ''
   
   // 3秒后重置状态
   setTimeout(() => {
@@ -118,6 +127,36 @@ button {
 
 button:disabled {
   cursor: default;
+}
+
+.sponsor-button {
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+/* 移动端按钮优化 */
+@media (max-width: 768px) {
+  .sponsor-button {
+    padding: 8px 12px !important;
+    min-height: 44px; /* 确保触摸目标足够大 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sponsor-button span {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sponsor-button {
+    padding: 6px 10px !important;
+  }
+  
+  .sponsor-button span {
+    font-size: 12px;
+  }
 }
 
 /* 下拉弹窗样式 */
@@ -237,6 +276,14 @@ button:disabled {
   z-index: 999;
 }
 
+/* 移动端遮罩层 */
+@media (max-width: 768px) {
+  .sponsor-overlay {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+  }
+}
+
 /* 暗色模式适配 */
 .dark .sponsor-content {
   background: var(--vp-c-bg-alt);
@@ -253,33 +300,125 @@ button:disabled {
 /* 响应式设计 */
 @media (max-width: 768px) {
   .sponsor-dropdown {
-    right: 10px;
-    left: 10px;
-    top: 60px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    right: auto;
+    width: calc(100vw - 32px);
+    max-width: 360px;
   }
   
   .sponsor-content {
     width: 100%;
+    padding: 24px 20px;
+    border-radius: 12px;
+  }
+  
+  .modal-title {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  
+  .modal-description {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  
+  .qr-container {
+    margin: 20px 0;
+  }
+  
+  .qr-image {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .qr-tip {
+    font-size: 11px;
+    margin: 12px 0 20px 0;
+  }
+  
+  .close-btn {
+    top: 12px;
+    right: 16px;
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sponsor-dropdown {
+    width: calc(100vw - 24px);
     max-width: 320px;
-    margin: 0 auto;
-    padding: 24px;
+  }
+  
+  .sponsor-content {
+    padding: 20px 16px;
+    border-radius: 8px;
+  }
+  
+  .modal-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .modal-description {
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .qr-container {
+    margin: 16px 0;
   }
   
   .qr-image {
     width: 160px;
     height: 160px;
   }
+  
+  .qr-tip {
+    font-size: 10px;
+    margin: 10px 0 16px 0;
+  }
+  
+  .action-btn {
+    padding: 6px 16px;
+    font-size: 13px;
+    height: 32px;
+    min-width: 80px;
+  }
+  
+  .close-btn {
+    top: 8px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    font-size: 18px;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 360px) {
+  .sponsor-dropdown {
+    width: calc(100vw - 16px);
+  }
+  
   .sponsor-content {
-    max-width: 280px;
-    padding: 20px;
+    padding: 16px 12px;
   }
   
   .qr-image {
     width: 140px;
     height: 140px;
+  }
+  
+  .modal-title {
+    font-size: 15px;
+  }
+  
+  .modal-description {
+    font-size: 11px;
   }
 }
 </style>
