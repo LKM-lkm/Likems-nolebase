@@ -137,7 +137,7 @@ export default defineConfig({
       light: 'github-light',
       dark: 'one-dark-pro',
     },
-    math: true,
+    math: false,
     preConfig: async (md) => {
       await nolebase.install(md)
     },
