@@ -1,0 +1,14 @@
+// 如果基础配置工作，可以尝试这个带 mathjax-termes 字体的版本
+export const mathJaxConfigWithTermes = `window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
+  },
+  chtml: {
+    fontURL: 'https://cdn.jsdelivr.net/npm/@mathjax/mathjax-termes-font@4.0.0/woff-v2'
+  },
+  startup: {
+    ready() {
+      MathJax.startup.defaultReady();
+    }
+  }
+};`
