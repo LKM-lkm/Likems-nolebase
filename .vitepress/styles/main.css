@@ -325,9 +325,49 @@ body {
 }
 
 /**
- * 修复暗黑模式下 MathJax 公式的颜色。
- * 这条规则让 MathJax 容器的文字颜色继承 VitePress 主题的当前颜色。
+ * MathJax v4 样式优化 - 根据官方文档配置
  */
+
+/* 基础 MathJax 容器样式 - 继承主题颜色 */
+mjx-container {
+  color: var(--vp-c-text-1) !important;
+  transition: color 0.3s ease;
+}
+
+/* 行内公式样式 */
+mjx-container[jax="CHTML"][display="false"] {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.1em;
+}
+
+/* 块级公式样式 */
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+/* 暗色模式适配 - 确保公式颜色正确 */
 .dark mjx-container {
-  color: inherit;
+  color: var(--vp-c-text-1) !important;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  mjx-container[jax="CHTML"][display="true"] {
+    font-size: 0.9em;
+    margin: 0.8em 0;
+  }
+  
+  mjx-container[jax="CHTML"][display="false"] {
+    font-size: 0.95em;
+  }
+}
+
+/* 防止公式溢出 */
+mjx-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
 }

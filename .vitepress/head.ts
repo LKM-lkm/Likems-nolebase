@@ -100,22 +100,25 @@ export default [
   // https://plausible.io/docs/proxy/guides/netlify
   ['script', { 'defer': 'true', 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
 
-  // 注入 MathJax v4 的配置
+  // MathJax v4 配置 - 根据官方文档
   [
     'script',
     {},
     `window.MathJax = {
       tex: {
-        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
+        inlineMath: {'[+]': [['$', '$']]}
+      },
+      output: {
+        font: 'mathjax-termes'
       }
     };`
   ],
-  // 注入 MathJax v4 的主脚本 (-nofont 版本以优化性能)
+  // 加载 MathJax v4 - 使用 tex-chtml 组合组件
   [
     'script',
     {
-      src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml-nofont.js',
-      async: 'true',
+      src: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
+      defer: true,
     },
   ],
 
