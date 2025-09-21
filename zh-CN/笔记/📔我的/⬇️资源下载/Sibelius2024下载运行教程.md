@@ -34,7 +34,7 @@ REG ADD HKCU\Software\Avid\Sibelius\SibeliusTierSelection /v TrialDialogSavedCho
 这样，每次Windows启动时，系统就会自动运行这个批处理文件。
 
 # 相关字体下载
-1. [Arno Pro](https://likemsblog.netlify.app/files/Arno_Pro.7z)
+1. <a href="/files/Arno_Pro.7z" download="Arno_Pro.7z">Arno Pro</a>
 2. [Century OSMT Pro](https://likemsblog.netlify.app/files/Century_OSMT_Pro.zip)
 3. [CenturyNo1SB-Bold](https://likemsblog.netlify.app/files/CenturyNo1SB-Bold.zip)
 4. [日文字体](https://soya.infini-cloud.net/share/13015d3f4a4b9b78)

@@ -6,6 +6,7 @@ import { h } from 'vue'
 
 import AppContainer from './components/AppContainer.vue'
 import DocFooter from './components/DocFooter.vue'
+import DownloadLink from './components/DownloadLink.vue'
 import Gitcus from './components/Gitcus'
 import HomePage from './components/HomePage.vue'
 import Share from './components/Share.vue'
