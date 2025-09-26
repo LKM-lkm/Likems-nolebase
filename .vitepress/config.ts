@@ -3,8 +3,9 @@ import { transformHeadMeta } from '@nolebase/vitepress-plugin-meta'
 import { calculateSidebar } from '@nolebase/vitepress-plugin-sidebar'
 // import { buildEndGenerateOpenGraphImages } from '@nolebase/vitepress-plugin-og-image/vitepress'
 import MarkdownItFootnote from 'markdown-it-footnote'
-
 import MarkdownItMark from 'markdown-it-mark'
+import MarkdownItKatex from 'markdown-it-katex'
+
 import { defineConfig } from 'vitepress'
 
 import { discordLink, githubRepoLink, siteDescription, siteName } from '../metadata'
@@ -137,13 +138,22 @@ export default defineConfig({
       light: 'github-light',
       dark: 'one-dark-pro',
     },
-    math: false,
+    math: false, // 禁用内置 KaTeX，使用自定义配置
     preConfig: async (md) => {
       await nolebase.install(md)
     },
     config: (md) => {
       md.use(MarkdownItFootnote)
       md.use(MarkdownItMark)
+      md.use(MarkdownItKatex, {
+        // 支持多种分隔符
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$', right: '$', display: false },
+          { left: '\\[', right: '\\]', display: true },
+          { left: '\\(', right: '\\)', display: false }
+        ]
+      })
     },
   },
   async transformHead(context) {

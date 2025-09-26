@@ -100,23 +100,23 @@ export default [
   // https://plausible.io/docs/proxy/guides/netlify
   ['script', { 'defer': 'true', 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
 
-  // MathJax v4 最简配置 - 避免字体和文档处理器问题
+  // KaTeX CSS 样式
   [
-    'script',
-    {},
-    `window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
-      }
-    };`
-  ],
-  // 使用默认字体的 MathJax v4
-  [
-    'script',
+    'link',
     {
-      src: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
-      defer: true,
+      rel: 'stylesheet',
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css',
     },
   ],
+  // 本地 TeX Gyre Termes 字体
+  [
+    'link',
+    {
+      rel: 'stylesheet',
+      href: '/fonts/tex-gyre-termes.css',
+    },
+  ],
+
+
 
 ] satisfies HeadConfig[]

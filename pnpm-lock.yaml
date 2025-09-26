@@ -11,6 +11,15 @@ importers:
       '@mathjax/mathjax-termes-font':
         specifier: ^4.0.0
         version: 4.0.0
+      '@mdit/plugin-katex':
+        specifier: ^0.23.1
+        version: 0.23.1(markdown-it@14.1.0)
+      katex:
+        specifier: ^0.16.22
+        version: 0.16.22
+      markdown-it-katex:
+        specifier: ^2.0.3
+        version: 2.0.3
       markdown-it-mark:
         specifier: ^4.0.0
         version: 4.0.0
@@ -1063,6 +1072,33 @@ packages:
   '@mathjax/mathjax-termes-font@4.0.0':
     resolution: {integrity: sha512-durvEkfHqlvThnydThKTOmAbtuqVVcm44Pb3MERL5uO23PqzlnkgPLDtsWA5CQOErrDq+zUQREWQBkIfx9UcqA==}
 
+  '@mdit/helper@0.22.1':
+    resolution: {integrity: sha512-lDpajcdAk84aYCNAM/Mi3djw38DJq7ocLw5VOSMu/u2YKX3/OD37a6Qb59in8Uyp4SiAbQoSHa8px6hgHEpB5g==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      markdown-it: ^14.1.0
+    peerDependenciesMeta:
+      markdown-it:
+        optional: true
+
+  '@mdit/plugin-katex@0.23.1':
+    resolution: {integrity: sha512-4hyeDzjIqBplwS/NOGHGkxraE3jIi3KJ+WBKmG/dMDvEO+oYovVXY0pTW7/d0SH/4vqhRp6stQ5z+rgPAovhOg==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      markdown-it: ^14.1.0
+    peerDependenciesMeta:
+      markdown-it:
+        optional: true
+
+  '@mdit/plugin-tex@0.22.1':
+    resolution: {integrity: sha512-sCoOHznJjECeWCd0SggYpiZfwDfGGZ5mN3sKQA9PCHVRRXHh0dEl3wwNNvp/L8f6jZ4SpG5mxtPqBvxlPbE5nw==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      markdown-it: ^14.1.0
+    peerDependenciesMeta:
+      markdown-it:
+        optional: true
+
   '@mrdrogdrog/optional@1.2.1':
     resolution: {integrity: sha512-8JdrQautBZ+nxTC29Sp7z/plyONdgPDjCbFTf6Iih5spZKW18EmP2D4zd48wG9Nn0Qpe8f0p9f8/94SlZFl4tQ==}
 
@@ -2102,6 +2138,10 @@ packages:
   commander@6.2.1:
     resolution: {integrity: sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==}
     engines: {node: '>= 6'}
+
+  commander@8.3.0:
+    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
+    engines: {node: '>= 12'}
 
   commander@9.2.0:
     resolution: {integrity: sha512-e2i4wANQiSXgnrBlIatyHtP1odfUp0BbV5Y5nEGbxtIrStkEOAAzCUirvLBNXHLr7kwLvJl6V+4V3XV9x7Wd9w==}
@@ -3258,6 +3298,14 @@ packages:
     resolution: {integrity: sha512-+KJGIyHgkGuIq3IEBNftfhW/LfWhXUIY6OmyVWjliu5KH1y0fw7VQ8YndE2O4qZdMSd9SqbnC8GOcZEy0Om7sA==}
     engines: {node: '>=18'}
 
+  katex@0.16.22:
+    resolution: {integrity: sha512-XCHRdUw4lf3SKBaJe4EvgqIuWwkPSo9XoeO8GjQW94Bp7TWv9hNhzZjZ+OH9yf1UmLygb7DIT5GSFQiyt16zYg==}
+    hasBin: true
+
+  katex@0.6.0:
+    resolution: {integrity: sha512-rS4mY3SvHYg5LtQV6RBcK0if7ur6plyEukAOV+jGGPqFImuzu8fHL6M752iBmRGoUyF0bhZbAPoezehn7xYksA==}
+    hasBin: true
+
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
@@ -3366,6 +3414,9 @@ packages:
   markdown-it-footnote@4.0.0:
     resolution: {integrity: sha512-WYJ7urf+khJYl3DqofQpYfEYkZKbmXmwxQV8c8mO/hGIhgZ1wOe7R4HLFNwqx7TjILbnC98fuyeSsin19JdFcQ==}
 
+  markdown-it-katex@2.0.3:
+    resolution: {integrity: sha512-nUkkMtRWeg7OpdflamflE/Ho/pWl64Lk9wNBKOmaj33XkQdumhXAIYhI0WO03GeiycPCsxbmX536V5NEXpC3Ng==}
+
   markdown-it-mark@4.0.0:
     resolution: {integrity: sha512-YLhzaOsU9THO/cal0lUjfMjrqSMPjjyjChYM7oyj4DnyaXEzA8gnW6cVJeyCrCVeyesrY2PlEdUYJSPFYL4Nkg==}
 
@@ -3378,6 +3429,9 @@ packages:
 
   markdown-table@3.0.4:
     resolution: {integrity: sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==}
+
+  match-at@0.1.1:
+    resolution: {integrity: sha512-h4Yd392z9mST+dzc+yjuybOGFNOZjmXIPKWjxBd1Bb23r4SmDOsk2NYCU2BMUBGbSpZqwVsZYNq26QS3xfaT3Q==}
 
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
@@ -5514,6 +5568,27 @@ snapshots:
 
   '@mathjax/mathjax-termes-font@4.0.0': {}
 
+  '@mdit/helper@0.22.1(markdown-it@14.1.0)':
+    dependencies:
+      '@types/markdown-it': 14.1.2
+    optionalDependencies:
+      markdown-it: 14.1.0
+
+  '@mdit/plugin-katex@0.23.1(markdown-it@14.1.0)':
+    dependencies:
+      '@mdit/helper': 0.22.1(markdown-it@14.1.0)
+      '@mdit/plugin-tex': 0.22.1(markdown-it@14.1.0)
+      '@types/markdown-it': 14.1.2
+      katex: 0.16.22
+    optionalDependencies:
+      markdown-it: 14.1.0
+
+  '@mdit/plugin-tex@0.22.1(markdown-it@14.1.0)':
+    dependencies:
+      '@types/markdown-it': 14.1.2
+    optionalDependencies:
+      markdown-it: 14.1.0
+
   '@mrdrogdrog/optional@1.2.1': {}
 
   '@netlify/binary-info@1.0.0': {}
@@ -6831,6 +6906,8 @@ snapshots:
   commander@12.1.0: {}
 
   commander@6.2.1: {}
+
+  commander@8.3.0: {}
 
   commander@9.2.0: {}
 
@@ -8156,6 +8233,14 @@ snapshots:
 
   jwt-decode@4.0.0: {}
 
+  katex@0.16.22:
+    dependencies:
+      commander: 8.3.0
+
+  katex@0.6.0:
+    dependencies:
+      match-at: 0.1.1
+
   keyv@4.5.4:
     dependencies:
       json-buffer: 3.0.1
@@ -8279,6 +8364,10 @@ snapshots:
 
   markdown-it-footnote@4.0.0: {}
 
+  markdown-it-katex@2.0.3:
+    dependencies:
+      katex: 0.6.0
+
   markdown-it-mark@4.0.0: {}
 
   markdown-it-mathjax3@4.3.2:
@@ -8298,6 +8387,8 @@ snapshots:
       uc.micro: 2.1.0
 
   markdown-table@3.0.4: {}
+
+  match-at@0.1.1: {}
 
   math-intrinsics@1.1.0: {}
 

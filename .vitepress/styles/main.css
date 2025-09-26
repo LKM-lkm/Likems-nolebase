@@ -325,49 +325,91 @@ body {
 }
 
 /**
- * MathJax v4 样式优化 - 根据官方文档配置
+ * KaTeX 样式优化 - 支持亮暗模式
  */
 
-/* 基础 MathJax 容器样式 - 继承主题颜色 */
-mjx-container {
-  color: var(--vp-c-text-1) !important;
-  transition: color 0.3s ease;
+/* 基础 KaTeX 样式 - 继承主题颜色 */
+.katex {
+  color: var(--vp-c-text-1);
+  font-size: 1.1em;
 }
 
 /* 行内公式样式 */
-mjx-container[jax="CHTML"][display="false"] {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 0.1em;
-}
-
-/* 块级公式样式 */
-mjx-container[jax="CHTML"][display="true"] {
-  display: block;
-  text-align: center;
+.katex-display {
   margin: 1em 0;
+  text-align: center;
 }
 
-/* 暗色模式适配 - 确保公式颜色正确 */
-.dark mjx-container {
-  color: var(--vp-c-text-1) !important;
+/* 暗色模式适配 */
+.dark .katex {
+  color: var(--vp-c-text-1);
 }
 
 /* 移动端优化 */
 @media (max-width: 768px) {
-  mjx-container[jax="CHTML"][display="true"] {
-    font-size: 0.9em;
-    margin: 0.8em 0;
+  .katex {
+    font-size: 1em;
   }
   
-  mjx-container[jax="CHTML"][display="false"] {
-    font-size: 0.95em;
+  .katex-display {
+    margin: 0.8em 0;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 }
 
 /* 防止公式溢出 */
-mjx-container {
-  overflow-x: auto;
-  overflow-y: hidden;
-  max-width: 100%;
+.katex-display > .katex {
+  white-space: nowrap;
+}
+
+/* 确保公式在代码块等特殊环境中的显示 */
+.vp-code-group .katex,
+.vp-code .katex {
+  color: var(--vp-c-text-1);
+}
+/**
+ *
+ KaTeX 样式优化 - 支持亮暗模式
+ */
+
+/* 基础 KaTeX 样式 - 继承主题颜色 */
+.katex {
+  color: var(--vp-c-text-1);
+  font-size: 1.1em;
+}
+
+/* 暗色模式适配 */
+.dark .katex {
+  color: var(--vp-c-text-1);
+}
+
+/* 行内公式样式 */
+.katex-display {
+  margin: 1em 0;
+  text-align: center;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .katex {
+    font-size: 1em;
+  }
+  
+  .katex-display {
+    margin: 0.8em 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+}
+
+/* 防止公式溢出 */
+.katex-display > .katex {
+  white-space: nowrap;
+}
+
+/* 确保公式在代码块等特殊环境中的显示 */
+.vp-code-group .katex,
+.vp-code .katex {
+  color: var(--vp-c-text-1);
 }

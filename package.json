@@ -84,6 +84,9 @@
   },
   "dependencies": {
     "@mathjax/mathjax-termes-font": "^4.0.0",
+    "@mdit/plugin-katex": "^0.23.1",
+    "katex": "^0.16.22",
+    "markdown-it-katex": "^2.0.3",
     "markdown-it-mark": "^4.0.0",
     "mathjax": "^4.0.0",
     "package.json": "^2.0.1",
