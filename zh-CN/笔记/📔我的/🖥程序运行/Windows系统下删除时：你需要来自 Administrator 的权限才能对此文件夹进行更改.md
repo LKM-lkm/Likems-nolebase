@@ -12,14 +12,14 @@ comment: true
 
 删除某个文件时：文件夹访问被拒绝，你需要来自 Administrator 的权限才能对此文件夹进行更改。  
 此处是安装的oracle数据库，把oracle卸载删除时删除不掉。  
-![文件夹访问被拒绝](assets/1.png)
+![[assets/1.png|文件夹访问被拒绝]]
 ==（windows获取所有权的脚本，通过注册表删除）==
 
 ## 二、解决方法：Windows获取所有权的脚本注册进行删除
 
 ### 1、桌面上-新建-文本文档-复制以下代码到文本文档，保存。
 
-![2](assets/2.png)
+![[assets/2.png]]
 代码如下：
 ```bash
 Windows Registry Editor Version 5.00
@@ -52,16 +52,16 @@ Windows Registry Editor Version 5.00
 ### 2、重命名为.reg后缀格式的注册表脚本文件
 
 1. 右击-此电脑-打开-查看-勾选文件扩展名  
-    ![3](assets/3.png)
+    ![[assets/3.png]]
 2. 将该后缀为.txt文本文件，重命名为：以注册表方式取得管理员所有权，并保存为.reg后缀格式为注册表脚本文件  
-    ![4](assets/4.png)
+    ![[assets/4.png]]
 
 ### 3、然后双击运行该文件，将其导入注册表。
 
 是，是，是  
-![5](assets/5.png)
-![6](assets/6.png)
-![7](assets/7.png)
+![[assets/5.png]]
+![[assets/6.png]]
+![[assets/7.png]]
 - reg文件补充说明：  
 	- reg文件是一种注册表脚本文件，双击REG文件即可将其中的数据导入到注册表中。利用REG文件可以直接对注册表进行任何修改操作，它对注册表的操作可以不受注册表编辑器被禁用的限制，因此功能更为强大、灵活。  
 - reg是什么文件?  
@@ -71,12 +71,12 @@ Windows Registry Editor Version 5.00
 
 ### 4、再次找到该目录，鼠标右键-获取管理员所有权-直接删除。
 
-![8](assets/8.png)
-![9](assets/9.png)
+![[assets/8.png]]
+![[assets/9.png]]
 然后-删除-成功删除。ok！！！
 
 ### 5、如果点击文件-右键-获取管理员所有权-乱码显示，转换为ANSI码
 
 把.reg注册表脚本文件，拖入notepad++编辑器，用notepad++打开，点击编码，转换成ANSI码。Ctrl+S保存。  
 然后再次运行该文件，选择要删除的文件，右键，获取管理员所有权，就不会乱码显示了。  
-![10](assets/10.png)
+![[assets/10.png]]
