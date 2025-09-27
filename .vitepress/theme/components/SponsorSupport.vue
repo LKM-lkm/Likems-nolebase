@@ -1,4 +1,7 @@
 <template>
+  <!-- 移动端分隔线 -->
+  <div class="bg-$vp-c-divider-light" mx2 block h-24px w-1px md:hidden />
+  
   <!-- 顶部栏按钮 -->
   <button
     h-full ws-nowrap px3 text-sm font-medium
@@ -134,28 +137,14 @@ button:disabled {
   border-radius: 4px;
 }
 
-/* 移动端按钮优化 */
+/* 移动端按钮优化 - 移除 padding 覆盖，保持与 Share 组件一致 */
 @media (max-width: 768px) {
   .sponsor-button {
-    padding: 8px 12px !important;
+    /* 移除 padding 覆盖，使用 UnoCSS 的 px3 */
     min-height: 44px; /* 确保触摸目标足够大 */
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .sponsor-button span {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 480px) {
-  .sponsor-button {
-    padding: 6px 10px !important;
-  }
-  
-  .sponsor-button span {
-    font-size: 12px;
   }
 }
 

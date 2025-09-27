@@ -28,7 +28,7 @@ VitePress 是一个强大而简洁的静态站点生成器，非常适合用于�
 
 为了避免与我们即将引入的 MathJax 发生冲突，首先需要关闭 VitePress 自带的公式渲染功能。
 
-打开你的项目配置文件 `.vitepress/head.ts`，找到 `markdown` 选项，将 `math` 属性设置为 `false`。
+打开你的项目配置文件 `.vitepress/config.ts`，找到 `markdown` 选项，将 `math` 属性设置为 `false`。
 
 ```typescript
 // .vitepress/config.ts
@@ -187,7 +187,7 @@ export default defineConfig({
 
 ### Part 3：MathJax 渲染效果
 
-[MathJax LaTeX 综合测试页面](../MathJax%20LaTeX%20综合测试页面.md)
+[MathJax LaTeX 综合测试页面](MathJax%20LaTeX%20综合测试页面.md)
 
 ---
 

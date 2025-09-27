@@ -13,23 +13,23 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "笔记/📔我的/⬇️资源下载/Sibelius2024下载运行教程.md",
+                "file": "笔记/📔我的/☁CloudFlare/CloudFlare Workers 被墙解决方案.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Sibelius2024下载运行教程"
+              "title": "CloudFlare Workers 被墙解决方案"
             }
           },
           {
-            "id": "2d0280724193e382",
+            "id": "c1d48b16d91a7ba5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "笔记/📔我的/☁CloudFlare/CloudFlare Workers 被墙解决方案.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "CloudFlare Workers 被墙解决方案"
@@ -181,19 +181,33 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "a759ad382bbe3a4c",
+  "active": "c1d48b16d91a7ba5",
   "lastOpenFiles": [
-    "Sibelius",
-    "笔记/📔我的/⬇️资源下载/Sibelius2024下载运行教程.md",
-    "笔记/📔我的/☁CloudFlare/CloudFlare Workers 被墙解决方案.md",
-    "笔记/📔我的/☁CloudFlare",
-    "笔记/📔我的/📃文字字体/VitePress 优雅集成 MathJax v4：打造专业级数学公式显示.md",
+    "笔记/📔我的/☁CloudFlare/assets/Pasted image 20250927102538.png",
+    "笔记/📔我的/☁CloudFlare/assets",
+    "toc.md",
     "test-mathjax.md",
+    "笔记/📔我的/☁CloudFlare/assets/Pasted image 20250927102521.png",
+    "笔记/📔我的/☁CloudFlare/assets/Pasted image 20250927102323.png",
+    "笔记/📔我的/🌐网络技巧/未命名.md",
+    "笔记/📔我的/☁CloudFlare/CloudFlare Workers 被墙解决方案.md",
+    "笔记/📔我的/🖥程序运行/Windows系统下删除时：你需要来自 Administrator 的权限才能对此文件夹进行更改.md",
+    "笔记/📔我的/🖥程序运行/assets/8.png",
+    "笔记/📔我的/🖥程序运行/assets/10.png",
+    "笔记/📔我的/🖥程序运行/assets/6.png",
+    "笔记/📔我的/🖥程序运行/assets/4.png",
+    "笔记/📔我的/🖥程序运行/assets/2.png",
+    "笔记/📔我的/🖥程序运行/assets/1.png",
+    "笔记/📔我的/📝nolebase/VitePress 优雅集成 MathJax v4：打造专业级数学公式显示.md",
+    "笔记/📔我的/📝nolebase",
+    "笔记/📔我的/𝄞Sibelius",
+    "笔记/📔我的/𝄞Sibelius/Sibelius2024下载运行教程.md",
+    "笔记/📔我的/☁CloudFlare",
     "笔记/📔我的/📃文字字体/开源字体嵌入CDN.md",
     "笔记/📔我的/📃文字字体/Symbol字体对照表.md",
     "笔记/📔我的/🌐网络技巧/Great Firewall.md",
     "新版变化.png",
-    "笔记/📔我的/MathJax LaTeX 综合测试页面.md",
+    "笔记/📔我的/📝nolebase/MathJax LaTeX 综合测试页面.md",
     "项目Log/对项目进行的修改.md"
   ]
 }

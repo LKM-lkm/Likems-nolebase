@@ -100,22 +100,30 @@ export default [
   // https://plausible.io/docs/proxy/guides/netlify
   ['script', { 'defer': 'true', 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
 
-  // KaTeX CSS 样式
+  // MathJax v4 配置
   [
-    'link',
+    'script',
+    {},
+    `window.MathJax = {
+      output: {
+        font: 'mathjax-termes'
+      },
+      tex: {
+        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
+        displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
+      }
+    };`
+  ],
+  // MathJax v4 主脚本
+  [
+    'script',
     {
-      rel: 'stylesheet',
-      href: 'https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css',
+      src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml-nofont.js',
+      async: '',
     },
   ],
-  // 本地 TeX Gyre Termes 字体
-  [
-    'link',
-    {
-      rel: 'stylesheet',
-      href: '/fonts/tex-gyre-termes.css',
-    },
-  ],
+
+
 
 
 
