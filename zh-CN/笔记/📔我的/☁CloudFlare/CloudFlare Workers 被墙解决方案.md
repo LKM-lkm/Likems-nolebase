@@ -1,3 +1,10 @@
+---
+tags:
+  - 互联网技术
+---
+
+# CloudFlare Workers 被墙解决方案
+
 由于近期zf的GFW力度加大，workers的域名已经被污染了。只是利用workers.dev的域名大概率出现无法访问。这里讲解一下在域名workers路由反代访问workers.dev的方法  
 1. 首先cloudfaare要有运行良好的域名  
 2. DNS里开启小云朵，添加cname，内容随意，但是不要是cf的ip
