@@ -26,5 +26,5 @@ tags:
 	- [邀请链接](https://ikuuu.de/auth/register?code=TAmS)
 
 ## Cloudflare自建节点
-- 暂时无效
+- 已被封禁
 
