@@ -100,27 +100,4 @@ export default [
   // https://plausible.io/docs/proxy/guides/netlify
   ['script', { 'defer': 'true', 'data-domain': 'nolebase.ayaka.io', 'data-api': '/api/v1/page-external-data/submit', 'src': '/assets/page-external-data/js/script.js' }],
 
-  // MathJax v4 配置 - 核心：使用 mathjax-termes 字体
-  [
-    'script',
-    {},
-    `window.MathJax = {
-      output: {
-        font: 'mathjax-termes'
-      },
-      tex: {
-        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-        displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
-      }
-    };`
-  ],
-  // MathJax v4 主脚本 (nofont 版本，按需加载字体)
-  [
-    'script',
-    {
-      src: 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml-nofont.js',
-      async: '',
-    },
-  ],
-
 ] satisfies HeadConfig[]
